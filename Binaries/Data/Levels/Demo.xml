@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<Level Name="Demo">
+  <Resources>
+    <Sprite Key="sprite0" Name="DefaultSprite.png"/>
+  </Resources>
+  <Entities>
+    <Entity Name="Player" Sprite="sprite0" Type="Basic">
+      <Scripts>
+	  <Script Name="DefaultScript"/>
+      </Scripts>
+    </Entity>
+  <Entities/>
+</Level>

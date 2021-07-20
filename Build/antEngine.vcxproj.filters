@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="GUI">
+      <UniqueIdentifier>{37eb9cc1-c58f-400b-b4f0-d888f5e364da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Render">
+      <UniqueIdentifier>{18870fe7-7fe6-4337-87ed-d8f5fb8ccfb8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources">
+      <UniqueIdentifier>{e179adcf-b7fe-4c3c-9314-d8dba1b7d852}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Gameplay">
+      <UniqueIdentifier>{47942957-e08a-41a2-8a37-41edebc8c37f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core">
+      <UniqueIdentifier>{3a428b9c-81b5-4f27-af21-d4e8e2bb2778}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Input">
+      <UniqueIdentifier>{fed527b9-f84e-41b2-b80b-f1704f34b43f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Gameplay\States">
+      <UniqueIdentifier>{8eca0c83-4fbe-4050-b5eb-b6e19e1545b9}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Code\Main.cpp" />
+    <ClCompile Include="..\Code\Resources\ResourceManager.cpp">
+      <Filter>Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Code\Render\Render.cpp">
+      <Filter>Render</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Code\Gameplay\Gameplay.cpp">
+      <Filter>Gameplay</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Code\Input\Input.cpp">
+      <Filter>Input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Code\Render\Entity.cpp">
+      <Filter>Render</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Code\Core\Logger.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Code\Resources\LevelLoader.cpp">
+      <Filter>Resources</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Code\Resources\ResourceManager.h">
+      <Filter>Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Code\Render\Render.h">
+      <Filter>Render</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Code\Render\Entity.h">
+      <Filter>Render</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Code\Gameplay\Gameplay.h">
+      <Filter>Gameplay</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Code\Input\Input.h">
+      <Filter>Input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Code\Core\Logger.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Code\Resources\LevelLoader.h">
+      <Filter>Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Code\Gameplay\States\IState.h">
+      <Filter>Gameplay\States</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Code\Gameplay\States\MenuState.h">
+      <Filter>Gameplay\States</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Code\Gameplay\States\GameState.h">
+      <Filter>Gameplay\States</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
