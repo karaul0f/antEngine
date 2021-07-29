@@ -1,3 +1,11 @@
+#pragma once
+#include <boost/signals2.hpp>
+
+namespace sf
+{
+	class RenderWindow;
+}
+
 namespace Input
 {
 	// Система ввода
@@ -10,14 +18,21 @@ namespace Input
 		Input(const Input& instance) = delete;
 		Input& operator=(const Input&) = delete;
 
+		std::shared_ptr<sf::RenderWindow> m_window;
 	public:
 		static Input& Instance()
 		{
 			static Input instance;
 			return instance;
 		}
+		
+		// Событие нажатия клавиши
+		boost::signals2::signal<void()> OnKeyPressed;
 
-		// Запускаем инициализацию систему ввода
+		// Событие отпускания клавиши
+		boost::signals2::signal<void()> OnKeyReleased;
+		
+		// Запускаем инициализацию системы ввода
 		void Init();
 
 		// Обработка ввода на каждом кадре

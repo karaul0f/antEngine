@@ -13,7 +13,9 @@ void Logger::Log(const std::string& message, const std::string &messageType = st
 //-----------------------------------------------------------------
 void Logger::Info(const std::string& message)
 {
+#ifdef _DEBUG
 	Log(message, "Info");
+#endif
 }
 //-----------------------------------------------------------------
 void Logger::Error(const std::string& message)

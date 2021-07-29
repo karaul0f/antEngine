@@ -5,9 +5,11 @@
   </Resources>
   <Entities>
     <Entity Name="Player" Sprite="sprite0" Type="Basic">
-      <Scripts>
-	  <Script Name="DefaultScript"/>
-      </Scripts>
+      	<Scripts>
+		<Script Name="DefaultScript"/>
+      	</Scripts>
+	<Component Name="CharacterController"/>
     </Entity>
+    <Entity Name="Enemy" Sprite="sprite0" Type="Basic"/>
   <Entities/>
 </Level>

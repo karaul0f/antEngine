@@ -1,3 +1,12 @@
+#pragma once
+#include "SFML/Graphics.hpp"
+
+//namespace sf
+//{
+//	class Drawable;
+//	class Sprite;
+//}
+
 namespace Render
 {
 	// Графическая сущность для отрисовки
@@ -6,6 +15,9 @@ namespace Render
 		bool m_isActive;
 		int  m_x;
 		int  m_y;
+		
+		sf::Sprite	m_sprite;
+		sf::Texture m_texture;
 	
 	public:
 		Entity();
@@ -18,5 +30,8 @@ namespace Render
 
 		// Установить Y-координату сущности в мировом пространстве
 		void SetY(int y);
+
+		// Получить изображение для отрисовки
+		sf::Drawable& GetDrawable();
 	};
 }

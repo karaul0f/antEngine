@@ -6,12 +6,13 @@
 
 int main()
 {
-	INFO("antEngine был запущен");
+	INFO("antEngine Р±С‹Р» Р·Р°РїСѓС‰РµРЅ");
 	
-	// Инициализация основных подсистем движка
+	// РРЅРёС†РёР°Р»РёР·Р°С†РёСЏ РѕСЃРЅРѕРІРЅС‹С… РїРѕРґСЃРёСЃС‚РµРј РґРІРёР¶РєР°
 	Resources::ResourceManager::Instance().Init();
 	Gameplay::Gameplay::Instance().Init();
 	Render::Render::Instance().Init();
+	Input::Input::Instance().Init();
 	//Gui.Init();
 	//ScriptManager.Init();
 
@@ -22,5 +23,5 @@ int main()
 		Render::Render::Instance().OnFrame();
 	}
 
-	INFO("antEngine прекратил свою работу");
+	INFO("antEngine РїСЂРµРєСЂР°С‚РёР» СЃРІРѕСЋ СЂР°Р±РѕС‚Сѓ");
 }

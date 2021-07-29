@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Code\Core\Logger.cpp" />
+    <ClCompile Include="..\Code\Gameplay\Entity.cpp" />
     <ClCompile Include="..\Code\Gameplay\Gameplay.cpp" />
     <ClCompile Include="..\Code\Input\Input.cpp" />
     <ClCompile Include="..\Code\Main.cpp" />
@@ -30,6 +31,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Code\Core\Logger.h" />
+    <ClInclude Include="..\Code\Gameplay\Components\IComponent.h" />
+    <ClInclude Include="..\Code\Gameplay\Entity.h" />
     <ClInclude Include="..\Code\Gameplay\Gameplay.h" />
     <ClInclude Include="..\Code\Gameplay\States\GameState.h" />
     <ClInclude Include="..\Code\Gameplay\States\IState.h" />
@@ -114,7 +117,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>..\Libraries\Win32\SFML-2.5.1\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\Libraries\Win32\SFML-2.5.1\include;..\Libraries\Win32\tinyxml2;..\Libraries\Win32\boost_1_76_0\;..\Code\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
     </ClCompile>
     <Link>

@@ -1,10 +1,17 @@
+#pragma once
 #include "Entity.h"
-
-#include <SFML/Graphics.hpp>
+#include <string>
+#include <memory>
+#include <vector>
 
 namespace
 {
 	const int MAX_VISUAL_ENITIES = 400;
+}
+
+namespace sf
+{
+	class RenderWindow;
 }
 
 namespace Render
@@ -17,14 +24,14 @@ namespace Render
 		Render(const Render& instance) = delete;
 		Render& operator=(const Render&) = delete;
 
-		std::unique_ptr<sf::RenderWindow> m_window;
+		std::shared_ptr<sf::RenderWindow> m_window;
 
 		std::string	m_name;
 		int			m_width;
 		int			m_height;
 
-		// Пул визуальных объектов
-		Entity m_entities[MAX_VISUAL_ENITIES];
+		// Визуальные сущности
+		std::vector<Entity> m_entities;
 	public:
 		static Render& Instance()
 		{
@@ -37,5 +44,8 @@ namespace Render
 		
 		// Обработка рендера на каждом кадре
 		void OnFrame();
+
+		// Получить указатель на окно рендера
+		std::shared_ptr<sf::RenderWindow> GetWindow();
 	};
 }

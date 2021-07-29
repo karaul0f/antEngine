@@ -1,5 +1,7 @@
 #include "Render.h"
-#include "../Core/Logger.h"
+#include "Core/Logger.h"
+#include "Render/Entity.h"
+#include <SFML/Graphics.hpp>
 
 namespace
 {
@@ -18,24 +20,24 @@ void Render::Init()
 	m_name = DEFAULT_WINDOW_NAME;
 	m_width = DEFAULT_WINDOW_WIDTH;
 	m_height = DEFAULT_WINDOW_HEIGHT;
-	m_window = std::make_unique<sf::RenderWindow>(sf::VideoMode(DEFAULT_WINDOW_WIDTH, DEFAULT_WINDOW_HEIGHT), m_name);
+	m_window = std::make_shared<sf::RenderWindow>(sf::VideoMode(DEFAULT_WINDOW_WIDTH, DEFAULT_WINDOW_HEIGHT), m_name);
+
+	m_entities.emplace_back();
 }
 //-----------------------------------------------------------------
 void Render::OnFrame()
 {
-	sf::Event event;
-	while (m_window->pollEvent(event))
-	{
-		if (event.type == sf::Event::Closed)
-			m_window->close();
-	}
-
 	m_window->clear();
 	for (auto entity : m_entities)
 	{
-		//m_window->draw(entity);
+		m_window->draw(entity.GetDrawable());
 	}
 	m_window->display();
+}
+//-----------------------------------------------------------------
+std::shared_ptr<sf::RenderWindow> Render::GetWindow()
+{
+	return std::shared_ptr<sf::RenderWindow>(m_window);
 }
 //-----------------------------------------------------------------
 }

@@ -22,6 +22,9 @@
     <Filter Include="Gameplay\States">
       <UniqueIdentifier>{8eca0c83-4fbe-4050-b5eb-b6e19e1545b9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Gameplay\Components">
+      <UniqueIdentifier>{8c38da98-21f0-4225-8b5b-a8e2ba577af5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Code\Main.cpp" />
@@ -45,6 +48,9 @@
     </ClCompile>
     <ClCompile Include="..\Code\Resources\LevelLoader.cpp">
       <Filter>Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Code\Gameplay\Entity.cpp">
+      <Filter>Gameplay</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -77,6 +83,12 @@
     </ClInclude>
     <ClInclude Include="..\Code\Gameplay\States\GameState.h">
       <Filter>Gameplay\States</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Code\Gameplay\Components\IComponent.h">
+      <Filter>Gameplay\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Code\Gameplay\Entity.h">
+      <Filter>Gameplay</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
