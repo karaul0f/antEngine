@@ -35,7 +35,7 @@ void Render::OnFrame()
 	m_window->display();
 }
 //-----------------------------------------------------------------
-std::shared_ptr<sf::RenderWindow> Render::GetWindow()
+std::shared_ptr<sf::RenderWindow> Render::GetWindow() const
 {
 	return std::shared_ptr<sf::RenderWindow>(m_window);
 }

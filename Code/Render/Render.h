@@ -46,6 +46,6 @@ namespace Render
 		void OnFrame();
 
 		// Получить указатель на окно рендера
-		std::shared_ptr<sf::RenderWindow> GetWindow();
+		std::shared_ptr<sf::RenderWindow> GetWindow() const;
 	};
 }

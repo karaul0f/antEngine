@@ -1,12 +1,6 @@
 #pragma once
 #include "SFML/Graphics.hpp"
 
-//namespace sf
-//{
-//	class Drawable;
-//	class Sprite;
-//}
-
 namespace Render
 {
 	// Графическая сущность для отрисовки
@@ -21,15 +15,6 @@ namespace Render
 	
 	public:
 		Entity();
-
-		// Активна ли эта графическая сущность
-		bool IsActive();
-
-		// Установить X-координату сущности в мировом пространстве
-		void SetX(int x);
-
-		// Установить Y-координату сущности в мировом пространстве
-		void SetY(int y);
 
 		// Получить изображение для отрисовки
 		sf::Drawable& GetDrawable();
