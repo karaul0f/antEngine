@@ -12,7 +12,7 @@ void Gameplay::Init()
 	
 	m_isRun = true;
 
-	SetState(new MenuState);
+	SetState(std::move(new MenuState));
 }
 //-----------------------------------------------------------------
 void Gameplay::OnFrame()

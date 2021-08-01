@@ -73,6 +73,12 @@
     <ClCompile Include="..\Code\GUI\Windows\MainMenuWindow.cpp">
       <Filter>GUI\Windows</Filter>
     </ClCompile>
+    <ClCompile Include="..\Code\GUI\Windows\InGameWindow.cpp">
+      <Filter>GUI\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Code\Gameplay\States\MenuState.cpp">
+      <Filter>Gameplay\States</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Code\Resources\ResourceManager.h">

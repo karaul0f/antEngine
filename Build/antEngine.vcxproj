@@ -25,7 +25,9 @@
     <ClCompile Include="..\Code\Gameplay\Gameplay.cpp" />
     <ClCompile Include="..\Code\Gameplay\Level.cpp" />
     <ClCompile Include="..\Code\Gameplay\States\GameState.cpp" />
+    <ClCompile Include="..\Code\Gameplay\States\MenuState.cpp" />
     <ClCompile Include="..\Code\GUI\Gui.cpp" />
+    <ClCompile Include="..\Code\GUI\Windows\InGameWindow.cpp" />
     <ClCompile Include="..\Code\GUI\Windows\MainMenuWindow.cpp" />
     <ClCompile Include="..\Code\Input\Input.cpp" />
     <ClCompile Include="..\Code\Main.cpp" />
