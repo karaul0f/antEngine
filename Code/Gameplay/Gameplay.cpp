@@ -11,6 +11,7 @@ void Gameplay::Init()
 	
 	m_isRun = true;
 	m_currentState = std::make_unique<GameState>();
+	m_currentState->Activate();
 }
 //-----------------------------------------------------------------
 void Gameplay::OnFrame()

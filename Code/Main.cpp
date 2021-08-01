@@ -23,5 +23,7 @@ int main()
 		Render::Render::Instance().OnFrame();
 	}
 
+	assert("123");
+
 	INFO("antEngine прекратил свою работу");
 }

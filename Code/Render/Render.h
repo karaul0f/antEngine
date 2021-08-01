@@ -1,13 +1,8 @@
 #pragma once
-#include "Entity.h"
 #include <string>
 #include <memory>
 #include <vector>
-
-namespace
-{
-	const int MAX_VISUAL_ENITIES = 400;
-}
+#include "VisualEntity.h"
 
 namespace sf
 {
@@ -16,11 +11,13 @@ namespace sf
 
 namespace Render
 {
-	// Система для обработки окна и отрисовки графики
+	class VisualEntity;
+
+	// РЎРёСЃС‚РµРјР° РґР»СЏ РѕР±СЂР°Р±РѕС‚РєРё РѕРєРЅР° Рё РѕС‚СЂРёСЃРѕРІРєРё РіСЂР°С„РёРєРё
 	class Render
 	{
 	private:
-		Render() {}
+		Render() { }
 		Render(const Render& instance) = delete;
 		Render& operator=(const Render&) = delete;
 
@@ -30,8 +27,8 @@ namespace Render
 		int			m_width;
 		int			m_height;
 
-		// Визуальные сущности
-		std::vector<Entity> m_entities;
+		// Р’РёР·СѓР°Р»СЊРЅС‹Рµ СЃСѓС‰РЅРѕСЃС‚Рё
+		std::vector<VisualEntity> m_entities;
 	public:
 		static Render& Instance()
 		{
@@ -39,13 +36,13 @@ namespace Render
 			return instance;
 		}
 
-		// Запускаем инициализацию рендера игры
+		// Р—Р°РїСѓСЃРєР°РµРј РёРЅРёС†РёР°Р»РёР·Р°С†РёСЋ СЂРµРЅРґРµСЂР° РёРіСЂС‹
 		void Init();
 		
-		// Обработка рендера на каждом кадре
+		// РћР±СЂР°Р±РѕС‚РєР° СЂРµРЅРґРµСЂР° РЅР° РєР°Р¶РґРѕРј РєР°РґСЂРµ
 		void OnFrame();
 
-		// Получить указатель на окно рендера
+		// РџРѕР»СѓС‡РёС‚СЊ СѓРєР°Р·Р°С‚РµР»СЊ РЅР° РѕРєРЅРѕ СЂРµРЅРґРµСЂР°
 		std::shared_ptr<sf::RenderWindow> GetWindow() const;
 	};
 }

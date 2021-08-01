@@ -21,7 +21,7 @@ void Input::OnFrame()
 			OnKeyPressed();
 		else if (event.type == sf::Event::KeyReleased)
 			OnKeyReleased();
-		else if (event.type == sf::Event::Closed)
+		if (event.type == sf::Event::Closed)
 			m_window->close();
 	}
 }

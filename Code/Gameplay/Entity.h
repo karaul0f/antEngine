@@ -1,10 +1,6 @@
 #pragma once
 #include "SFML/Graphics.hpp"
-
-namespace Render
-{
-	class Entity;
-}
+#include "Components/IComponent.h"
 
 namespace Gameplay
 {
@@ -12,7 +8,8 @@ namespace Gameplay
 	class Entity
 	{
 		bool m_isActive;
-
+		
+		std::vector<std::shared_ptr<IComponent>> m_components;
 	public:
 		Entity();
 
@@ -20,6 +17,6 @@ namespace Gameplay
 		bool IsActive();
 
 		// Обработка кадра игровой сущности
-		void OnFrame();
+		virtual void OnFrame();
 	};
 }

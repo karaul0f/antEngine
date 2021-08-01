@@ -7,5 +7,11 @@ namespace Gameplay
 	public:
 		// Обработка кадра стейта
 		virtual void OnFrame() = 0;
+
+		// Действия при активации стейста
+		virtual void Activate() = 0;
+
+		// Действия при деактивации стейста
+		virtual void Deactivate() = 0;
 	};
 }

@@ -1,6 +1,6 @@
 #include "Render.h"
+
 #include "Core/Logger.h"
-#include "Render/Entity.h"
 #include <SFML/Graphics.hpp>
 
 namespace
@@ -15,14 +15,14 @@ namespace Render
 //-----------------------------------------------------------------
 void Render::Init()
 {
-	INFO("Инициализация рендера");
+	INFO("РРЅРёС†РёР°Р»РёР·Р°С†РёСЏ СЂРµРЅРґРµСЂР°");
 	
 	m_name = DEFAULT_WINDOW_NAME;
 	m_width = DEFAULT_WINDOW_WIDTH;
 	m_height = DEFAULT_WINDOW_HEIGHT;
 	m_window = std::make_shared<sf::RenderWindow>(sf::VideoMode(DEFAULT_WINDOW_WIDTH, DEFAULT_WINDOW_HEIGHT), m_name);
 
-	m_entities.emplace_back();
+	//m_entities.emplace_back();
 }
 //-----------------------------------------------------------------
 void Render::OnFrame()

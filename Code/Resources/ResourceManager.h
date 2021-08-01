@@ -1,4 +1,7 @@
 #pragma once
+#include <string>
+#include <unordered_map>
+
 #include "LevelLoader.h"
 
 namespace Resources
@@ -10,7 +13,6 @@ namespace Resources
 		ResourceManager() {}
 		ResourceManager(const ResourceManager& instance) = delete;
 		ResourceManager& operator=(const ResourceManager&) = delete;
-	
 	public:
 		static ResourceManager& Instance()
 		{
