@@ -36,7 +36,7 @@ void MainMenuWindow::Deactivate()
 //-----------------------------------------------------------------
 void MainMenuWindow::HandlerPlayButtonClick()
 {
-	Gameplay::Gameplay::Instance().SetState(std::move(new Gameplay::GameState));
+	Gameplay::Gameplay::Instance().SetState(new Gameplay::GameState);
 }
 //-----------------------------------------------------------------
 void MainMenuWindow::HandlerExitButtonClick()

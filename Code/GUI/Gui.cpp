@@ -29,7 +29,7 @@ void GUI::Init()
 {
 	m_gui.setTarget(*Render::Render::Instance().GetWindow());
 
-	SetWindow(std::move(new MainMenuWindow));
+	SetWindow(new MainMenuWindow);
 }
 //-----------------------------------------------------------------
 }

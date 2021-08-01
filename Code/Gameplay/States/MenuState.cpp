@@ -13,7 +13,7 @@ void MenuState::OnFrame()
 //-----------------------------------------------------------------
 void MenuState::Activate()
 {
-	Render::Render::Instance().GetGUI()->SetWindow(std::move(new GUI::MainMenuWindow));
+	Render::Render::Instance().GetGUI()->SetWindow(new GUI::MainMenuWindow);
 }
 //-----------------------------------------------------------------
 void MenuState::Deactivate()

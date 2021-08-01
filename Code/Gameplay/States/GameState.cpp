@@ -15,7 +15,7 @@ void GameState::Activate()
 {
 	m_currentLevel = std::make_unique<Level>();
 	m_currentLevel->Activate();
-	Render::Render::Instance().GetGUI()->SetWindow(std::move(new GUI::InGameWindow));
+	Render::Render::Instance().GetGUI()->SetWindow(new GUI::InGameWindow);
 }
 //-----------------------------------------------------------------
 void GameState::Deactivate()
