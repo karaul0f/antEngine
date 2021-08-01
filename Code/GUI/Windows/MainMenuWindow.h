@@ -1,8 +1,12 @@
 #pragma once
 #include <memory>
-#include <TGUI/Widgets/Button.hpp>
 
 #include "IWindow.h"
+
+namespace tgui {
+	class Button;
+	class Picture;
+}
 
 namespace GUI
 {
@@ -15,6 +19,7 @@ namespace GUI
 		std::shared_ptr<tgui::Button> m_playButton;
 		std::shared_ptr<tgui::Button> m_creditsButton;
 		std::shared_ptr<tgui::Button> m_exitButton;
+		std::shared_ptr<tgui::Picture> m_gamelogoPicture;
 
 		tgui::GuiSFML* m_gui;
 	

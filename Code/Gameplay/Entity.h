@@ -16,6 +16,12 @@ namespace Gameplay
 		// Активна ли эта игровая сущность
 		bool IsActive();
 
+		// Активация игровой сущности
+		virtual void Activate();
+
+		// Деактивация игровой сущности
+		virtual void Deactivate();
+		
 		// Обработка кадра игровой сущности
 		virtual void OnFrame();
 	};

@@ -22,5 +22,8 @@ namespace Resources
 		
 		// Запускаем загрузку ресурсов игры
 		void Init();
+
+		// Уничтожаем все ресурсы
+		void Deinit();
 	};
 }

@@ -1,8 +1,17 @@
 <?xml version="1.0"?>
-<States>
-  <State Name="GameState"/>
-</States>
-<Levels StartupLevel="FirstLocation">
-  <Level Name="FirstLocation" Path="Demo.xml"/>
-  <Level Name="SecondLocation" Path="Demo.xml">
-</Level>
+<GameConfig>
+  <States>
+    <State Name="MenuState"/>
+    <State Name="GameState"/>
+  </States>
+  <Resources>
+      <Resource Name="Sprite0" Type="Sprite" Path="DefaultSprite.png"/>
+      <Resource Name="Gamelogo" Type="Sprite" Path="Gamelogo.png"/>
+      <Resource Name="Sound0" Type="Sound" Path="Open.wav"/>
+      <Resource Name="Music0" Type="Music" Path="BensoundMemories.wav"/>
+  </Resources>
+  <Levels StartupLevel="FirstLocation">
+    <Level Name="FirstLocation" Path="Demo.xml"/>
+    <Level Name="SecondLocation" Path="Demo.xml">
+  </Level>
+</GameConfig>

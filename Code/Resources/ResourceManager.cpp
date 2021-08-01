@@ -2,10 +2,18 @@
 #include "../Core/Logger.h"
 #include "tinyxml2.h"
 
+namespace Resources
+{
 //-----------------------------------------------------------------
-void Resources::ResourceManager::Init()
+void ResourceManager::Init()
 {
 	INFO("Инициализация менеджера ресурсов");
+
+}
+//-----------------------------------------------------------------
+void ResourceManager::Deinit()
+{
 	
 }
 //-----------------------------------------------------------------
+}
