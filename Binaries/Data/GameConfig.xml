@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<States>
+  <State Name="GameState"/>
+</States>
+<Levels StartupLevel="FirstLocation">
+  <Level Name="FirstLocation" Path="Demo.xml"/>
+  <Level Name="SecondLocation" Path="Demo.xml">
+</Level>

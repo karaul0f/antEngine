@@ -25,6 +25,12 @@
     <Filter Include="Gameplay\Components">
       <UniqueIdentifier>{8c38da98-21f0-4225-8b5b-a8e2ba577af5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Audio">
+      <UniqueIdentifier>{7726b4f8-eae5-4f23-b180-38cfcb5ee2f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GUI\Windows">
+      <UniqueIdentifier>{c8b89b65-93b0-487d-8bf5-936a8c75b239}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Code\Main.cpp" />
@@ -40,7 +46,7 @@
     <ClCompile Include="..\Code\Input\Input.cpp">
       <Filter>Input</Filter>
     </ClCompile>
-    <ClCompile Include="..\Code\Render\Entity.cpp">
+    <ClCompile Include="..\Code\Render\VisualEntity.cpp">
       <Filter>Render</Filter>
     </ClCompile>
     <ClCompile Include="..\Code\Core\Logger.cpp">
@@ -52,6 +58,18 @@
     <ClCompile Include="..\Code\Gameplay\Entity.cpp">
       <Filter>Gameplay</Filter>
     </ClCompile>
+    <ClCompile Include="..\Code\Gameplay\States\GameState.cpp">
+      <Filter>Gameplay\States</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Code\Gameplay\Level.cpp">
+      <Filter>Gameplay</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Code\GUI\Gui.cpp">
+      <Filter>GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Code\Audio\AudioPlayer.cpp">
+      <Filter>Audio</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Code\Resources\ResourceManager.h">
@@ -60,7 +78,7 @@
     <ClInclude Include="..\Code\Render\Render.h">
       <Filter>Render</Filter>
     </ClInclude>
-    <ClInclude Include="..\Code\Render\Entity.h">
+    <ClInclude Include="..\Code\Render\VisualEntity.h">
       <Filter>Render</Filter>
     </ClInclude>
     <ClInclude Include="..\Code\Gameplay\Gameplay.h">
@@ -89,6 +107,15 @@
     </ClInclude>
     <ClInclude Include="..\Code\Gameplay\Entity.h">
       <Filter>Gameplay</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Code\Gameplay\Level.h">
+      <Filter>Gameplay</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Code\GUI\Gui.h">
+      <Filter>GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Code\Audio\AudioPlayer.h">
+      <Filter>Audio</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

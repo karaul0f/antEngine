@@ -22,6 +22,8 @@ void Render::Init()
 	m_height = DEFAULT_WINDOW_HEIGHT;
 	m_window = std::make_shared<sf::RenderWindow>(sf::VideoMode(DEFAULT_WINDOW_WIDTH, DEFAULT_WINDOW_HEIGHT), m_name);
 
+	m_gui = std::make_shared<GUI::GUI>();
+	m_gui->Init();
 	//m_entities.emplace_back();
 }
 //-----------------------------------------------------------------
@@ -32,12 +34,18 @@ void Render::OnFrame()
 	{
 		m_window->draw(entity.GetDrawable());
 	}
+	m_gui->OnFrame();
 	m_window->display();
 }
 //-----------------------------------------------------------------
 std::shared_ptr<sf::RenderWindow> Render::GetWindow() const
 {
 	return std::shared_ptr<sf::RenderWindow>(m_window);
+}
+//-----------------------------------------------------------------
+std::shared_ptr<GUI::GUI> Render::GetGUI()
+{
+	return std::shared_ptr<GUI::GUI>(m_gui);
 }
 //-----------------------------------------------------------------
 }

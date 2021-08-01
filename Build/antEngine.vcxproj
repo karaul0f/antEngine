@@ -19,26 +19,33 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\Code\Audio\AudioPlayer.cpp" />
     <ClCompile Include="..\Code\Core\Logger.cpp" />
     <ClCompile Include="..\Code\Gameplay\Entity.cpp" />
     <ClCompile Include="..\Code\Gameplay\Gameplay.cpp" />
+    <ClCompile Include="..\Code\Gameplay\Level.cpp" />
+    <ClCompile Include="..\Code\Gameplay\States\GameState.cpp" />
+    <ClCompile Include="..\Code\GUI\Gui.cpp" />
     <ClCompile Include="..\Code\Input\Input.cpp" />
     <ClCompile Include="..\Code\Main.cpp" />
-    <ClCompile Include="..\Code\Render\Entity.cpp" />
+    <ClCompile Include="..\Code\Render\VisualEntity.cpp" />
     <ClCompile Include="..\Code\Render\Render.cpp" />
     <ClCompile Include="..\Code\Resources\LevelLoader.cpp" />
     <ClCompile Include="..\Code\Resources\ResourceManager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\Code\Audio\AudioPlayer.h" />
     <ClInclude Include="..\Code\Core\Logger.h" />
     <ClInclude Include="..\Code\Gameplay\Components\IComponent.h" />
     <ClInclude Include="..\Code\Gameplay\Entity.h" />
     <ClInclude Include="..\Code\Gameplay\Gameplay.h" />
+    <ClInclude Include="..\Code\Gameplay\Level.h" />
     <ClInclude Include="..\Code\Gameplay\States\GameState.h" />
     <ClInclude Include="..\Code\Gameplay\States\IState.h" />
     <ClInclude Include="..\Code\Gameplay\States\MenuState.h" />
+    <ClInclude Include="..\Code\GUI\Gui.h" />
     <ClInclude Include="..\Code\Input\Input.h" />
-    <ClInclude Include="..\Code\Render\Entity.h" />
+    <ClInclude Include="..\Code\Render\VisualEntity.h" />
     <ClInclude Include="..\Code\Render\Render.h" />
     <ClInclude Include="..\Code\Resources\LevelLoader.h" />
     <ClInclude Include="..\Code\Resources\ResourceManager.h" />
@@ -117,14 +124,15 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>..\Libraries\Win32\SFML-2.5.1\include;..\Libraries\Win32\tinyxml2;..\Libraries\Win32\boost_1_76_0\;..\Code\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\Libraries\Win32\SFML-2.5.1\include;..\Libraries\Win32\tinyxml2;..\Libraries\Win32\boost_1_76_0\;..\Code\;..\Libraries\Win32\TGUI-0.9\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>..\Libraries\Win32\SFML-2.5.1\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;sfml-audio-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\Libraries\Win32\SFML-2.5.1\lib;..\Libraries\Win32\TGUI-0.9\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;sfml-audio-d.lib;tgui-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalOptions>/VERBOSE /EXPORTS %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -135,14 +143,14 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>SFML_DYNAMIC;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>..\Libraries\Win32\SFML-2.5.1\include;..\Libraries\Win32\tinyxml2;..\Libraries\Win32\boost_1_76_0\;..\Code\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\Libraries\Win32\SFML-2.5.1\include;..\Libraries\Win32\tinyxml2;..\Libraries\Win32\boost_1_76_0\;..\Code\;..\Libraries\Win32\TGUI-0.9\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>..\Libraries\Win32\SFML-2.5.1\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\Libraries\Win32\SFML-2.5.1\lib;..\Libraries\Win32\TGUI-0.9\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">

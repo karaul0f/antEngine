@@ -3,6 +3,7 @@
 #include <memory>
 #include <vector>
 #include "VisualEntity.h"
+#include "GUI/Gui.h"
 
 namespace sf
 {
@@ -27,6 +28,8 @@ namespace Render
 		int			m_width;
 		int			m_height;
 
+		std::shared_ptr<GUI::GUI> m_gui;
+		
 		// Визуальные сущности
 		std::vector<VisualEntity> m_entities;
 	public:
@@ -44,5 +47,8 @@ namespace Render
 
 		// Получить указатель на окно рендера
 		std::shared_ptr<sf::RenderWindow> GetWindow() const;
+
+		// Получить систему GUI рендера
+		std::shared_ptr<GUI::GUI> GetGUI();
 	};
 }
