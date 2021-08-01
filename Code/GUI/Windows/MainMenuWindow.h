@@ -10,6 +10,7 @@ namespace GUI
 	class MainMenuWindow: public IWindow
 	{
 		void HandlerPlayButtonClick();
+		void HandlerExitButtonClick();
 		
 		std::shared_ptr<tgui::Button> m_playButton;
 		std::shared_ptr<tgui::Button> m_creditsButton;

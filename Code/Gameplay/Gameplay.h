@@ -30,5 +30,11 @@ namespace Gameplay
 
 		// Запущена ли обработка игровой логики?
 		bool IsRun();
+
+		// Закрыть игру
+		void Close();
+
+		// Установить состояние игры (меню, игра)
+		void SetState(IState *state);
 	};
 }

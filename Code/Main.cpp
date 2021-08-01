@@ -1,3 +1,4 @@
+#include "Audio/AudioPlayer.h"
 #include "Core/Logger.h"
 #include "Gameplay/Gameplay.h"
 #include "Input/Input.h"
@@ -10,10 +11,10 @@ int main()
 	
 	// Инициализация основных подсистем движка
 	Resources::ResourceManager::Instance().Init();
-	Gameplay::Gameplay::Instance().Init();
 	Render::Render::Instance().Init();
+	Gameplay::Gameplay::Instance().Init();
 	Input::Input::Instance().Init();
-	//Gui.Init();
+	Audio::AudioPlayer::Instance().Init();
 	//ScriptManager.Init();
 
 	while(Gameplay::Gameplay::Instance().IsRun())
@@ -22,6 +23,7 @@ int main()
 		Gameplay::Gameplay::Instance().OnFrame();
 		Render::Render::Instance().OnFrame();
 	}
-
+	
+	Render::Render::Instance().Deinit();
 	INFO("antEngine прекратил свою работу");
 }

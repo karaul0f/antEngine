@@ -1,26 +1,24 @@
-#include "GameState.h"
+#include "MenuState.h"
 
-#include "GUI/Windows/InGameWindow.h"
+#include "GUI/Windows/MainMenuWindow.h"
 #include "Render/Render.h"
 
 namespace Gameplay
 {
 //-----------------------------------------------------------------
-void GameState::OnFrame()
-{
-	m_currentLevel->OnFrame();
-}
-//-----------------------------------------------------------------
-void GameState::Activate()
-{
-	m_currentLevel = std::make_unique<Level>();
-	m_currentLevel->Activate();
-	Render::Render::Instance().GetGUI()->SetWindow(std::move(new GUI::InGameWindow));
-}
-//-----------------------------------------------------------------
-void GameState::Deactivate()
+void MenuState::OnFrame()
 {
 	
+}
+//-----------------------------------------------------------------
+void MenuState::Activate()
+{
+	Render::Render::Instance().GetGUI()->SetWindow(std::move(new GUI::MainMenuWindow));
+}
+//-----------------------------------------------------------------
+void MenuState::Deactivate()
+{
+
 }
 //-----------------------------------------------------------------
 }

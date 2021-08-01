@@ -1,6 +1,7 @@
 #include "Input.h"
 #include "Render/Render.h"
 #include "Core/Logger.h"
+#include "Gameplay/Gameplay.h"
 #include "SFML/Graphics.hpp"
 
 namespace Input
@@ -25,7 +26,7 @@ void Input::OnFrame()
 		else if (event.type == sf::Event::KeyReleased)
 			OnKeyReleased();
 		if (event.type == sf::Event::Closed)
-			m_window->close();
+			Gameplay::Gameplay::Instance().Close();
 	}
 }
 //-----------------------------------------------------------------

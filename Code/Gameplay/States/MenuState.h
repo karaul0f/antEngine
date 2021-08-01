@@ -7,6 +7,8 @@ namespace Gameplay
 	class MenuState : public IState
 	{
 	public:
-		void OnFrame() override {}
+		void Activate() override;
+		void Deactivate() override;
+		void OnFrame() override;
 	};
 }
