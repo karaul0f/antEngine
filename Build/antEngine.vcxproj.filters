@@ -70,6 +70,9 @@
     <ClCompile Include="..\Code\Audio\AudioPlayer.cpp">
       <Filter>Audio</Filter>
     </ClCompile>
+    <ClCompile Include="..\Code\GUI\Windows\MainMenuWindow.cpp">
+      <Filter>GUI\Windows</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Code\Resources\ResourceManager.h">
@@ -116,6 +119,15 @@
     </ClInclude>
     <ClInclude Include="..\Code\Audio\AudioPlayer.h">
       <Filter>Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Code\GUI\Windows\IWindow.h">
+      <Filter>GUI\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Code\GUI\Windows\MainMenuWindow.h">
+      <Filter>GUI\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Code\GUI\Windows\InGameWindow.h">
+      <Filter>GUI\Windows</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

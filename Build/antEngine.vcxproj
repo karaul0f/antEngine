@@ -26,6 +26,7 @@
     <ClCompile Include="..\Code\Gameplay\Level.cpp" />
     <ClCompile Include="..\Code\Gameplay\States\GameState.cpp" />
     <ClCompile Include="..\Code\GUI\Gui.cpp" />
+    <ClCompile Include="..\Code\GUI\Windows\MainMenuWindow.cpp" />
     <ClCompile Include="..\Code\Input\Input.cpp" />
     <ClCompile Include="..\Code\Main.cpp" />
     <ClCompile Include="..\Code\Render\VisualEntity.cpp" />
@@ -44,6 +45,9 @@
     <ClInclude Include="..\Code\Gameplay\States\IState.h" />
     <ClInclude Include="..\Code\Gameplay\States\MenuState.h" />
     <ClInclude Include="..\Code\GUI\Gui.h" />
+    <ClInclude Include="..\Code\GUI\Windows\InGameWindow.h" />
+    <ClInclude Include="..\Code\GUI\Windows\IWindow.h" />
+    <ClInclude Include="..\Code\GUI\Windows\MainMenuWindow.h" />
     <ClInclude Include="..\Code\Input\Input.h" />
     <ClInclude Include="..\Code\Render\VisualEntity.h" />
     <ClInclude Include="..\Code\Render\Render.h" />
