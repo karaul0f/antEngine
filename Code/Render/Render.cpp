@@ -29,6 +29,10 @@ void Render::Init()
 //-----------------------------------------------------------------
 void Render::OnFrame()
 {
+#ifdef _DEBUG
+	m_previousTime = m_clock.getElapsedTime();
+#endif
+	
 	m_window->clear();
 	for (auto entity : m_entities)
 	{
@@ -36,6 +40,13 @@ void Render::OnFrame()
 	}
 	m_gui->OnFrame();
 	m_window->display();
+
+#ifdef _DEBUG
+	m_currentTime = m_clock.getElapsedTime();
+	m_fps = 1.0f / (m_currentTime.asSeconds() - m_previousTime.asSeconds()); // the asSeconds returns a float
+	std::cout << "fps = " << floor(m_fps) << std::endl; // flooring it will make the frame rate a rounded number
+	m_previousTime = m_currentTime;
+#endif
 }
 //-----------------------------------------------------------------
 std::shared_ptr<sf::RenderWindow> Render::GetWindow() const
