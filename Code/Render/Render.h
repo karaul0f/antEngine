@@ -28,12 +28,6 @@ namespace Render
 		int			m_width;
 		int			m_height;
 
-		// Для замера производительности
-		float     m_fps;
-		sf::Clock m_clock;
-		sf::Time  m_previousTime;
-		sf::Time  m_currentTime;
-
 		std::shared_ptr<GUI::GUI> m_gui;
 		
 		// Визуальные сущности

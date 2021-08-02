@@ -17,11 +17,28 @@ int main()
 	Audio::AudioPlayer::Instance().Init();
 	//ScriptManager.Init();
 
+	// Для замера производительности
+	float fps;
+	sf::Clock clock;
+	sf::Time  previousTime;
+	sf::Time  currentTime;
+	
 	while(Gameplay::Gameplay::Instance().IsRun())
 	{
+#ifdef _DEBUG
+		previousTime = clock.getElapsedTime();
+#endif
+
 		Input::Input::Instance().OnFrame();
 		Gameplay::Gameplay::Instance().OnFrame();
 		Render::Render::Instance().OnFrame();
+
+#ifdef _DEBUG
+		currentTime = clock.getElapsedTime();
+		fps = 1.0f / (currentTime.asSeconds() - previousTime.asSeconds());
+		std::cout << "fps = " << floor(fps) << std::endl;
+		previousTime = currentTime;
+#endif
 	}
 	
 	Render::Render::Instance().Deinit();
