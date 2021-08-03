@@ -20,11 +20,9 @@ namespace Resources
 		ResourceManager& operator=(const ResourceManager&) = delete;
 
 		std::map<std::string, sf::Texture>		m_textures;
-		std::map<std::string, sf::Sprite>		m_sprites;
 		std::map<std::string, sf::Music>		m_musics;
-		
 		std::map<std::string, sf::SoundBuffer>	m_soundBuffers;
-		std::map<std::string, sf::Sound>		m_sounds;
+		
 	public:
 		static ResourceManager& Instance()
 		{
@@ -42,15 +40,15 @@ namespace Resources
 		void ResourceLoad();
 
 		// Создаём путь к файлу 
-		std::string CreatePath(std::string path);
+		const std::string& CreatePath(const std::string& path);
 
 		// Получаем спрайт по имени
-		sf::Sprite& GetSpriteByName(std::string name);
+		sf::Texture& GetTexureByName(const std::string& name);
 
 		// Получаем музыку по имени
-		sf::Music& GetMusicByName(std::string name);
+		sf::Music& GetMusicByName(const std::string& name);
 
 		// Получаем звук по имени
-		sf::Sound& GetSoundByName(std::string name);
+		sf::SoundBuffer& GetSoundBufferByName(const std::string& name);
 	};
 }

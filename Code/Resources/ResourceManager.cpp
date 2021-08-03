@@ -8,6 +8,7 @@ namespace
 	const std::string SPRITE_TYPE = "Sprite";
 	const std::string MUSIC_TYPE = "Music";
 	const std::string SOUND_TYPE = "Sound";
+	const std::string PATH_TO_RESOURCES = "Data/Resources/";
 }
 
 namespace Resources
@@ -22,8 +23,11 @@ void ResourceManager::Init()
 //-----------------------------------------------------------------
 void ResourceManager::Deinit()
 {
-	
+	m_textures.clear();
+	m_musics.clear();
+	m_soundBuffers.clear();
 }
+//-----------------------------------------------------------------
 void ResourceManager::ResourceLoad()
 {
 	tinyxml2::XMLDocument doc;
@@ -37,10 +41,9 @@ void ResourceManager::ResourceLoad()
 		for (tinyxml2::XMLElement* resource = resources->FirstChildElement("Resource");
 			resource != nullptr; resource = resource->NextSiblingElement())
 		{
-			if (SPRITE_TYPE == resource->Attribute("Type")) //SPRITE_TYPE.compare(resource->Attribute("Type"))
+			if (SPRITE_TYPE == resource->Attribute("Type"))
 			{
 				m_textures[resource->Attribute("Name")].loadFromFile(CreatePath(resource->Attribute("Path")));
-				m_sprites[resource->Attribute("Name")].setTexture(m_textures[resource->Attribute("Name")]);
 			}
 			else if (MUSIC_TYPE == resource->Attribute("Type"))
 			{
@@ -49,27 +52,29 @@ void ResourceManager::ResourceLoad()
 			else if (SOUND_TYPE == resource->Attribute("Type"))
 			{
 				m_soundBuffers[resource->Attribute("Name")].loadFromFile(CreatePath(resource->Attribute("Path")));
-				m_sounds[resource->Attribute("Name")].setBuffer(m_soundBuffers[resource->Attribute("Name")]);
 			}
 		}
 	}
 }
-std::string ResourceManager::CreatePath(std::string path)
+//-----------------------------------------------------------------
+const std::string& ResourceManager::CreatePath(const std::string& path)
 {
-	path = "Data/Resources/" + path;
-	return path;
+	return PATH_TO_RESOURCES + path;
 }
-sf::Sprite& ResourceManager::GetSpriteByName(std::string name)
+//-----------------------------------------------------------------
+sf::Texture& ResourceManager::GetTexureByName(const std::string& name)
 {
-	return m_sprites[name];
+	return m_textures[name];
 }
-sf::Music& ResourceManager::GetMusicByName(std::string name)
+//-----------------------------------------------------------------
+sf::Music& ResourceManager::GetMusicByName(const std::string& name)
 {
 	return m_musics[name];
 }
-sf::Sound& ResourceManager::GetSoundByName(std::string name)
+//-----------------------------------------------------------------
+sf::SoundBuffer& ResourceManager::GetSoundBufferByName(const std::string& name)
 {
-	return m_sounds[name];
+	return m_soundBuffers[name];
 }
 //-----------------------------------------------------------------
 }
