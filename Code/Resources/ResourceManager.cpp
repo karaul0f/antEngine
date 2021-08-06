@@ -47,17 +47,18 @@ void ResourceManager::ResourceLoad()
 			}
 			else if (MUSIC_TYPE == resource->Attribute("Type"))
 			{
-				m_musics[resource->Attribute("Name")].openFromFile(CreatePath(resource->Attribute("Path")));
+				m_musics.try_emplace(resource->Attribute("Name"), CreatePath(resource->Attribute("Path")));
 			}
 			else if (SOUND_TYPE == resource->Attribute("Type"))
 			{
 				m_soundBuffers[resource->Attribute("Name")].loadFromFile(CreatePath(resource->Attribute("Path")));
+				m_sounds.try_emplace(resource->Attribute("Name"), CreatePath(resource->Attribute("Path")), m_soundBuffers[resource->Attribute("Name")]);
 			}
 		}
 	}
 }
 //-----------------------------------------------------------------
-const std::string& ResourceManager::CreatePath(const std::string& path)
+std::string ResourceManager::CreatePath(const std::string& path)
 {
 	return PATH_TO_RESOURCES + path;
 }
@@ -67,14 +68,14 @@ sf::Texture& ResourceManager::GetTexureByName(const std::string& name)
 	return m_textures[name];
 }
 //-----------------------------------------------------------------
-sf::Music& ResourceManager::GetMusicByName(const std::string& name)
+Music& ResourceManager::GetMusicByName(const std::string& name)
 {
 	return m_musics[name];
 }
 //-----------------------------------------------------------------
-sf::SoundBuffer& ResourceManager::GetSoundBufferByName(const std::string& name)
+Sound& ResourceManager::GetSoundByName(const std::string& name)
 {
-	return m_soundBuffers[name];
+	return m_sounds[name];
 }
 //-----------------------------------------------------------------
 }

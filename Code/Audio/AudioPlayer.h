@@ -1,5 +1,14 @@
 #pragma once
 #include "SFML/Audio.hpp"
+#include "Resources/Types/Music.h"
+#include <Resources/Types/Sound.h>
+#include <unordered_map>
+
+namespace 
+{
+	typedef std::unordered_map<std::string, sf::Music*> MapMusic;
+	typedef std::unordered_map<std::string, sf::Sound*> MapSound;
+}
 
 namespace Audio
 {
@@ -9,6 +18,10 @@ namespace Audio
 		AudioPlayer() { }
 		AudioPlayer(const AudioPlayer& instance) = delete;
 		AudioPlayer& operator=(const AudioPlayer&) = delete;
+		
+		MapMusic m_musics;
+		MapSound m_sounds;
+
 	public:
 		static AudioPlayer& Instance()
 		{
@@ -20,10 +33,10 @@ namespace Audio
 		void Init();
 		
 		// Проиграть звук
-		void PlaySound(sf::Sound& sound);
+		void PlaySound(Resources::Sound& sound);
 
 		// Проиграть музыку
-		void PlayMusic(sf::Music& music, bool repeat);
+		void PlayMusic(Resources::Music& music, bool repeat);
 
 		// Остановить все звуки
 		void StopAllSounds();
