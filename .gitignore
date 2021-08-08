@@ -1,1 +1,7 @@
+#Visual Studio
 .vs
+
+#Libraries
+/Libraries/Win32/*
+!/Libraries/Win32/*.7z
+!/Libraries/Win32/*.bat
