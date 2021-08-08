@@ -1,5 +1,8 @@
 #Visual Studio
 .vs
+/Build/Release
+/Build/.vs
+/Build/Debug
 
 #Libraries
 /Libraries/Win32/*
