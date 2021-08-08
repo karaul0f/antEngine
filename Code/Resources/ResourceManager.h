@@ -1,7 +1,6 @@
 #pragma once
 #include <string>
 #include <unordered_map>
-
 #include "LevelLoader.h"
 #include "SFML/Graphics.hpp"
 #include "Resources/Types/Music.h"
@@ -25,6 +24,12 @@ namespace Resources
 
 		std::unordered_map<std::string, Sound>				m_sounds;
 		std::unordered_map<std::string, sf::SoundBuffer>	m_soundBuffers;
+
+		// Загружаем ресурсы для игры
+		void ResourceLoad();
+
+		// Создаём путь к файлу 
+		std::string CreatePath(const std::string& path);
 		
 	public:
 		static ResourceManager& Instance()
@@ -38,12 +43,6 @@ namespace Resources
 
 		// Уничтожаем все ресурсы
 		void Deinit();
-
-		// Загружаем ресурсы для игры
-		void ResourceLoad();
-
-		// Создаём путь к файлу 
-		std::string CreatePath(const std::string& path);
 
 		// Получаем текстуру по имени
 		sf::Texture& GetTexureByName(const std::string& name);

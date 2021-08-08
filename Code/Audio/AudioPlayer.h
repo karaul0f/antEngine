@@ -1,7 +1,7 @@
 #pragma once
 #include "SFML/Audio.hpp"
 #include "Resources/Types/Music.h"
-#include <Resources/Types/Sound.h>
+#include "Resources/Types/Sound.h"
 #include <unordered_map>
 
 namespace 

@@ -12,6 +12,6 @@
   </Resources>
   <Levels StartupLevel="FirstLocation">
     <Level Name="FirstLocation" Path="Demo.xml"/>
-    <Level Name="SecondLocation" Path="Demo.xml">
-  </Level>
+    <Level Name="SecondLocation" Path="Demo.xml"/>
+  </Levels>
 </GameConfig>

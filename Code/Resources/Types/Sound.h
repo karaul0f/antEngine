@@ -3,7 +3,7 @@
 
 namespace Resources
 {
-	// Графическая сущность для отрисовки
+	// Сущность для хранения звука и пути к нему
 	class Sound
 	{
 		sf::Sound	m_sound;

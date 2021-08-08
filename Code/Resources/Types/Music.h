@@ -3,7 +3,7 @@
 
 namespace Resources
 {
-	// Графическая сущность для отрисовки
+	// Сущность для хранения музыки и пути к ней
 	class Music
 	{
 		sf::Music	m_music;
