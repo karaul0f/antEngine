@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Code\Audio\AudioPlayer.cpp" />
+    <ClCompile Include="..\Code\Core\Ini.cpp" />
     <ClCompile Include="..\Code\Core\Logger.cpp" />
     <ClCompile Include="..\Code\Gameplay\Entity.cpp" />
     <ClCompile Include="..\Code\Gameplay\Gameplay.cpp" />
@@ -35,9 +36,12 @@
     <ClCompile Include="..\Code\Render\Render.cpp" />
     <ClCompile Include="..\Code\Resources\LevelLoader.cpp" />
     <ClCompile Include="..\Code\Resources\ResourceManager.cpp" />
+    <ClCompile Include="..\Code\Resources\Types\Music.cpp" />
+    <ClCompile Include="..\Code\Resources\Types\Sound.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Code\Audio\AudioPlayer.h" />
+    <ClInclude Include="..\Code\Core\Ini.h" />
     <ClInclude Include="..\Code\Core\Logger.h" />
     <ClInclude Include="..\Code\Gameplay\Components\IComponent.h" />
     <ClInclude Include="..\Code\Gameplay\Entity.h" />
@@ -55,6 +59,8 @@
     <ClInclude Include="..\Code\Render\Render.h" />
     <ClInclude Include="..\Code\Resources\LevelLoader.h" />
     <ClInclude Include="..\Code\Resources\ResourceManager.h" />
+    <ClInclude Include="..\Code\Resources\Types\Music.h" />
+    <ClInclude Include="..\Code\Resources\Types\Sound.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -136,8 +142,8 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>..\Libraries\Win32\SFML-2.5.1\lib;..\Libraries\Win32\TGUI-0.9\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;sfml-audio-d.lib;tgui-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\Libraries\Win32\tinyxml2\lib;..\Libraries\Win32\SFML-2.5.1\lib;..\Libraries\Win32\TGUI-0.9\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;sfml-audio-d.lib;tgui-d.lib;tinyxml2.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalOptions>/VERBOSE /EXPORTS %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
