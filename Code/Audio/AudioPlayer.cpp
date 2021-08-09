@@ -5,13 +5,11 @@ namespace Audio
 //-----------------------------------------------------------------
 void AudioPlayer::Init()
 {
-
 }
 //-----------------------------------------------------------------
 void AudioPlayer::PlaySound(Resources::Sound& sound)
 {
-	MapSound::iterator lb = m_sounds.find(sound.GetFilePath());
-	if (lb != m_sounds.end() || m_sounds.size() == 0)
+	if (m_sounds.count(sound.GetFilePath()) == 0)
 	{
 		m_sounds[sound.GetFilePath()] = &sound.GetSound();
 	}
@@ -20,8 +18,7 @@ void AudioPlayer::PlaySound(Resources::Sound& sound)
 //-----------------------------------------------------------------
 void AudioPlayer::PlayMusic(Resources::Music& music, bool repeat = false)
 {
-	MapMusic::iterator lb = m_musics.find(music.GetFilePath());
-	if (lb != m_musics.end() || m_musics.size() == 0)
+	if (m_musics.count(music.GetFilePath()) == 0)
 	{
 		m_musics[music.GetFilePath()] = &music.GetMusic();
 	}
@@ -38,12 +35,7 @@ void AudioPlayer::StopAllSounds()
 		music.second->stop();
 }
 //-----------------------------------------------------------------
-void AudioPlayer::SetMusicVolume(float volume)
-{
-	sf::Listener::setGlobalVolume(volume);
-}
-//-----------------------------------------------------------------
-void AudioPlayer::SetSoundVolume(float volume)
+void AudioPlayer::SetVolume(float volume)
 {
 	sf::Listener::setGlobalVolume(volume);
 }

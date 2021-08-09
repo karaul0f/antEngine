@@ -9,7 +9,7 @@ namespace Resources
 		sf::Music	m_music;
 		std::string m_filePath;
 	public:
-		Music() {};
+		Music() = delete;
 		Music(std::string filePath);
 
 		// Получить музыку

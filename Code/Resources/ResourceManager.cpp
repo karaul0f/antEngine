@@ -1,7 +1,6 @@
 #include "ResourceManager.h"
 #include "../Core/Logger.h"
 #include "tinyxml2.h"
-#include "tinyxml2.cpp"
 
 namespace
 {
@@ -65,17 +64,17 @@ std::string ResourceManager::CreatePath(const std::string& path)
 //-----------------------------------------------------------------
 sf::Texture& ResourceManager::GetTexureByName(const std::string& name)
 {
-	return m_textures[name];
+	return m_textures.at(name);
 }
 //-----------------------------------------------------------------
 Music& ResourceManager::GetMusicByName(const std::string& name)
 {
-	return m_musics[name];
+	return m_musics.at(name);
 }
 //-----------------------------------------------------------------
 Sound& ResourceManager::GetSoundByName(const std::string& name)
 {
-	return m_sounds[name];
+	return m_sounds.at(name);
 }
 //-----------------------------------------------------------------
 }

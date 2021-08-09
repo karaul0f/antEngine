@@ -9,7 +9,7 @@ namespace Resources
 		sf::Sound	m_sound;
 		std::string m_filePath;
 	public:
-		Sound() {};
+		Sound() = delete;
 		Sound(std::string filePath, sf::SoundBuffer& buffer);
 
 		// Получить звук

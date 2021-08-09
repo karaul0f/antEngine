@@ -41,10 +41,8 @@ namespace Audio
 		// Остановить все звуки
 		void StopAllSounds();
 
-		// Установить громкость музыки
-		void SetMusicVolume(float volume);
+		// Установить громкость музыки и звуков
+		void SetVolume(float volume);
 
-		// Установить громкость звуков
-		void SetSoundVolume(float volume);
 	};
 }
