@@ -31,6 +31,9 @@
     <Filter Include="GUI\Windows">
       <UniqueIdentifier>{c8b89b65-93b0-487d-8bf5-936a8c75b239}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resources\Types">
+      <UniqueIdentifier>{ba8ed173-7c46-4c0c-b412-86eb06b6aabc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Code\Main.cpp" />
@@ -78,6 +81,15 @@
     </ClCompile>
     <ClCompile Include="..\Code\Gameplay\States\MenuState.cpp">
       <Filter>Gameplay\States</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Code\Resources\Types\Music.cpp">
+      <Filter>Resources\Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Code\Resources\Types\Sound.cpp">
+      <Filter>Resources\Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Code\Core\Ini.cpp">
+      <Filter>Core</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -134,6 +146,15 @@
     </ClInclude>
     <ClInclude Include="..\Code\GUI\Windows\InGameWindow.h">
       <Filter>GUI\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Code\Resources\Types\Music.h">
+      <Filter>Resources\Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Code\Resources\Types\Sound.h">
+      <Filter>Resources\Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Code\Core\Ini.h">
+      <Filter>Core</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
