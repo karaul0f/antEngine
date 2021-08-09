@@ -142,7 +142,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>E:\common\projects\antEngine\Libraries\Win32\tinyxml2\lib;..\Libraries\Win32\SFML-2.5.1\lib;..\Libraries\Win32\TGUI-0.9\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\Libraries\Win32\tinyxml2\lib;..\Libraries\Win32\SFML-2.5.1\lib;..\Libraries\Win32\TGUI-0.9\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;sfml-audio-d.lib;tgui-d.lib;tinyxml2.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalOptions>/VERBOSE /EXPORTS %(AdditionalOptions)</AdditionalOptions>
     </Link>
