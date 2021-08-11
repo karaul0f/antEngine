@@ -8,32 +8,19 @@ namespace
 namespace Core
 {
 //-----------------------------------------------------------------
-Ini::Ini()
-{
-	m_filePath = FILE_SETTINGS;
-
-	std::ifstream settingFile(m_filePath);
-	if (!settingFile.is_open())
-	{
-		std::ofstream createSettingFile(m_filePath);
-		createSettingFile.close();
-	}
-	settingFile.close();
-
-	boost::property_tree::ini_parser::read_ini(FILE_SETTINGS, m_pTree);
-}
+Ini::Ini():Ini(FILE_SETTINGS) {}
 //-----------------------------------------------------------------
-Ini::Ini(std::string& filePath)
+Ini::Ini(const std::string& filePath)
 {
 	m_filePath = filePath;
 
-	std::ifstream settingFile(m_filePath);
-	if (!settingFile.is_open())
+	std::ifstream iniFile(m_filePath);
+	if (!iniFile.is_open())
 	{
-		std::ofstream createSettingFile(m_filePath);
-		createSettingFile.close();
+		std::ofstream newIniFile(m_filePath);
+		newIniFile.close();
 	}
-	settingFile.close();
+	iniFile.close();
 
 	boost::property_tree::ini_parser::read_ini(filePath, m_pTree);
 }
@@ -43,34 +30,34 @@ Ini::~Ini()
 	m_pTree.clear();
 }
 //-----------------------------------------------------------------
-int Ini::GetIntValue(std::string propertyName)
+int Ini::GetIntValue(const std::string& propertyName)
 {
 	return m_pTree.get<int>(propertyName);
 }
 //-----------------------------------------------------------------
-float Ini::GetFloatValue(std::string propertyName)
+float Ini::GetFloatValue(const std::string& propertyName)
 {
 	return m_pTree.get<float>(propertyName);
 }
 //-----------------------------------------------------------------
-std::string Ini::GetStringValue(std::string propertyName)
+std::string Ini::GetStringValue(const std::string& propertyName)
 {
 	return m_pTree.get<std::string>(propertyName);
 }
 //-----------------------------------------------------------------
-void Ini::SetIntValue(std::string propertyName, int value)
+void Ini::SetIntValue(const std::string& propertyName, int value)
 {
 	m_pTree.put(propertyName, value);
 	boost::property_tree::ini_parser::write_ini(m_filePath, m_pTree);
 }
 //-----------------------------------------------------------------
-void Ini::SetFloatValue(std::string propertyName, float value)
+void Ini::SetFloatValue(const std::string& propertyName, float value)
 {
 	m_pTree.put(propertyName, value);
 	boost::property_tree::ini_parser::write_ini(m_filePath, m_pTree);
 }
 //-----------------------------------------------------------------
-void Ini::SetStringValue(std::string propertyName, std::string value)
+void Ini::SetStringValue(const std::string& propertyName, const std::string& value)
 {
 	m_pTree.put(propertyName, value);
 	boost::property_tree::ini_parser::write_ini(m_filePath, m_pTree);

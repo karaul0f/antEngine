@@ -4,6 +4,7 @@
 
 namespace Core
 {
+	// Класс для работы с ini файлами
 	class Ini
 	{
 		boost::property_tree::ptree m_pTree;
@@ -11,18 +12,18 @@ namespace Core
 
 	public:
 		Ini();
-		Ini(std::string& filePath);
+		Ini(const std::string& filePath);
 
 		~Ini();
 
 		// Получить значение из заданного ini файла
-		int GetIntValue(std::string propertyName);
-		float GetFloatValue(std::string propertyName);
-		std::string GetStringValue(std::string propertyName);
+		int GetIntValue(const std::string& propertyName);
+		float GetFloatValue(const std::string& propertyName);
+		std::string GetStringValue(const std::string& propertyName);
 
 		// Записать значение в ini файл
-		void SetIntValue(std::string propertyName, int value);
-		void SetFloatValue(std::string propertyName, float value);
-		void SetStringValue(std::string propertyName, std::string value);
+		void SetIntValue(const std::string& propertyName, int value);
+		void SetFloatValue(const std::string& propertyName, float value);
+		void SetStringValue(const std::string& propertyName, const std::string& value);
 	};
 }
