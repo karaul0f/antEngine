@@ -24,7 +24,6 @@ void Render::Init()
 
 	m_gui = std::make_shared<GUI::GUI>();
 	m_gui->Init();
-	//m_entities.emplace_back();
 }
 //-----------------------------------------------------------------
 void Render::OnFrame()
@@ -36,6 +35,28 @@ void Render::OnFrame()
 	}
 	m_gui->OnFrame();
 	m_window->display();
+}
+//-----------------------------------------------------------------
+VisualEntity* Render::CreateEntity()
+{
+	m_entities.emplace_back();
+	
+	return nullptr;
+}
+//-----------------------------------------------------------------
+VisualEntity* Render::GetEntityByName(const std::string& name)
+{
+	return nullptr;
+}
+//-----------------------------------------------------------------
+std::vector<VisualEntity>& Render::GetEntities()
+{
+	return m_entities;
+}
+//-----------------------------------------------------------------
+void Render::RemoveAllEntities()
+{
+	m_entities.clear();
 }
 //-----------------------------------------------------------------
 std::shared_ptr<sf::RenderWindow> Render::GetWindow() const
@@ -51,6 +72,7 @@ std::shared_ptr<GUI::GUI> Render::GetGUI()
 void Render::Deinit()
 {
 	INFO("Деинициализация рендера");
+	RemoveAllEntities();
 	m_window->close();
 }
 //-----------------------------------------------------------------

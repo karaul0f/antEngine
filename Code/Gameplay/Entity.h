@@ -9,7 +9,7 @@ namespace Gameplay
 	{
 		bool m_isActive;
 		
-		std::vector<std::shared_ptr<IComponent>> m_components;
+		std::vector<std::unique_ptr<IComponent>> m_components;
 	public:
 		Entity();
 

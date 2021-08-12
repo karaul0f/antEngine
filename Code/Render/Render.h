@@ -48,6 +48,18 @@ namespace Render
 		// Обработка рендера на каждом кадре
 		void OnFrame();
 
+		// Создать визуальную сущность для отрисовки
+		VisualEntity* CreateEntity();
+
+		// Получить визуальную сущность по имени
+		VisualEntity* GetEntityByName(const std::string &name);
+
+		// Получить все визуальные сущности рендера
+		std::vector<VisualEntity>& GetEntities();
+
+		// Удалить все визуальные сущности в рендере
+		void RemoveAllEntities();
+
 		// Получить указатель на окно рендера
 		std::shared_ptr<sf::RenderWindow> GetWindow() const;
 

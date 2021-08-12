@@ -1,18 +1,19 @@
 #pragma once
+#include "IComponent.h"
 
 namespace Gameplay
 {
 	// Интерфейс для компонентов игровой сущности
-	class IComponent
+	class GraphicComponent: public IComponent
 	{
 	public:
 		// Активация компонента
-		virtual void Activate() = 0;
+		void Activate() override;
 
 		// Деактивация компонента
-		virtual void Deactivate() = 0;
-		
+		void Deactivate() override;
+
 		// Обработка кадра игровой логики
-		virtual void OnFrame() = 0;
+		void OnFrame() override;
 	};
 }

@@ -1,26 +1,23 @@
-#include "Level.h"
+#include "GraphicComponent.h"
+
+#include "Render/Render.h"
 
 namespace Gameplay
 {
 //-----------------------------------------------------------------
-void Level::Activate()
+void GraphicComponent::Activate()
 {
-	m_entities.emplace_back();
-	m_entities[0].Activate();
+	Render::Render::Instance().CreateEntity();
 }
 //-----------------------------------------------------------------
-void Level::OnFrame()
+void GraphicComponent::Deactivate()
 {
-	for (auto& entity : m_entities)
-	{
-		if(entity.IsActive())
-			entity.OnFrame();
-	}
+	
 }
 //-----------------------------------------------------------------
-void Level::Deactivate()
+void GraphicComponent::OnFrame()
 {
-	m_entities.clear();
+	
 }
 //-----------------------------------------------------------------
 }

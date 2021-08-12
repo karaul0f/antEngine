@@ -8,12 +8,15 @@ namespace Render
 	{
 		bool m_isActive;
 		
-		sf::Sprite m_sprite;
-		sf::Texture m_texture;
+		sf::Sprite	 m_sprite;
+		sf::Texture* m_texture;
 	public:
 		VisualEntity();
 
 		// Получить изображение для отрисовки
 		sf::Drawable& GetDrawable();
+
+		// Установить позицию отрисовки
+		void SetPosition(int x, int y);
 	};
 }
