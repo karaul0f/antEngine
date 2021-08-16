@@ -1,11 +1,18 @@
 #pragma once
+#include <map>
 #include <memory>
+#include <fstream>
 
 #include "IWindow.h"
+#include "Audio/AudioPlayer.h"
 
 namespace tgui {
 	class Button;
 	class Picture;
+	class Slider;
+	class Label;
+	class Widget;
+	class ClickableWidget;
 }
 
 namespace GUI
@@ -13,18 +20,35 @@ namespace GUI
 	// Интерфейс главного меню игры
 	class MainMenuWindow: public IWindow
 	{
-		void HandlerPlayButtonClick();
-		void HandlerExitButtonClick();
-		
-		std::shared_ptr<tgui::Button> m_playButton;
-		std::shared_ptr<tgui::Button> m_creditsButton;
-		std::shared_ptr<tgui::Button> m_exitButton;
-		std::shared_ptr<tgui::Picture> m_gamelogoPicture;
+		enum State
+		{
+			Menu,
+			Settings,
+			Credits
+		};
 
-		tgui::GuiSFML* m_gui;
-	
-	public:
-		void Activate(tgui::GuiSFML* gui) override;
-		void Deactivate() override;
+		void HandlerPlayButtonClick();
+		void HandlerSettingsButtonClick();
+		void HandlerCreditsButtonClick();
+		void HandlerReturnButtonClick();
+		void HandlerExitButtonClick();
+
+		void HandlerSliderValueChange();
+
+		void LoadCreditsFile();
+		void SetTab(std::string tab);
+		
+		std::shared_ptr<tgui::Button>	m_returnButton;
+
+		std::multimap<std::string, std::shared_ptr<tgui::Widget>> m_guiElements;
+		
+		std::string m_currentTab;
+		std::string m_creditsText;
+
+		tgui::GuiSFML* m_gui;						         
+													         
+	public:											   	     
+		void Activate(tgui::GuiSFML* gui) override;	   	     
+		void Deactivate() override;						     
 	};
 }
