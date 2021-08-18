@@ -10,15 +10,18 @@ namespace GUI
 void MainMenuWindow::Activate(tgui::GuiSFML* gui)
 {
 	m_gui = gui;
+	m_currentTab = "Menu";
+	LoadCreditsFile();
 
 	m_guiElements.insert(make_pair("Credits", tgui::Label::create()));
 	auto& element = (--m_guiElements.equal_range("Credits").second)->second;
-	element->setPosition("50%", "50%");
-	element->setOrigin(0.5f, 0.5f);
-	element->setTextSize(20);
 	auto&& labelElem = std::static_pointer_cast<tgui::Label>(element);
+	labelElem->setPosition("50%", "50%");
+	labelElem->setOrigin(0.5f, 0.5f);
+	labelElem->setTextSize(20);
+	labelElem->setText(m_creditsText);
 	labelElem->setHorizontalAlignment(tgui::Label::HorizontalAlignment::Center);
-	m_gui->add(element);
+	m_gui->add(labelElem);
 
 	m_guiElements.insert(make_pair("Menu", tgui::Button::create("Начать игру")));
 	element = (--m_guiElements.equal_range("Menu").second)->second;
@@ -34,7 +37,6 @@ void MainMenuWindow::Activate(tgui::GuiSFML* gui)
 	element->setOrigin(0.5f, 0.5f);
 	m_gui->add(element);
 
-	// TO DO не отображается кнопка авторы
 	m_guiElements.insert(make_pair("Menu", tgui::Button::create("Авторы")));
 	element = (--m_guiElements.equal_range("Menu").second)->second;
 	std::static_pointer_cast<tgui::ClickableWidget>(element)->onClick(&MainMenuWindow::HandlerCreditsButtonClick, this);
@@ -48,6 +50,17 @@ void MainMenuWindow::Activate(tgui::GuiSFML* gui)
 	element->setPosition("50%", "60%");
 	element->setOrigin(0.5f, 0.5f);
 	m_gui->add(element);
+	
+	m_guiElements.insert(make_pair("Volume", tgui::Slider::create()));
+	element = (--m_guiElements.equal_range("Volume").second)->second;
+	auto&& sliderElement = std::static_pointer_cast<tgui::Slider>(element);
+	sliderElement->setPosition("50%", "50%");
+	sliderElement->setOrigin(0.5f, 0.5f);
+	sliderElement->onValueChange(&MainMenuWindow::HandlerSliderValueChange, this);
+	sliderElement->setMaximum(100);
+	sliderElement->setMinimum(0);
+	sliderElement->setValue(50);
+	m_gui->add(sliderElement);
 
 	m_returnButton = tgui::Button::create("Русские назад");
 	m_returnButton->onClick(&MainMenuWindow::HandlerReturnButtonClick, this);
@@ -56,22 +69,7 @@ void MainMenuWindow::Activate(tgui::GuiSFML* gui)
 	m_returnButton->setVisible(false);
 	m_gui->add(m_returnButton);
 
-	// TO DO не отображается слайдер
-	m_guiElements.insert(make_pair("Volume", tgui::Slider::create()));
-	element = (--m_guiElements.equal_range("Volume").first)->second;
-	auto&& sliderElement = std::static_pointer_cast<tgui::Slider>(element);
-	sliderElement->setPosition("50%", "50%");
-	sliderElement->setOrigin(0.5f, 0.5f);
-	sliderElement->onValueChange(&MainMenuWindow::HandlerSliderValueChange, this);
-	sliderElement->setMaximum(100);
-	sliderElement->setMinimum(0);
-	sliderElement->setValue(50);
-	//m_guiElements.rbegin()->second->setHorizontalAlignment(tgui::Label::HorizontalAlignment::Center);
-	m_gui->add(sliderElement);
-
-	LoadCreditsFile();
 	SetTab("Menu");
-	m_currentTab = "Menu";
 }
 //-----------------------------------------------------------------
 void MainMenuWindow::Deactivate()
@@ -86,14 +84,12 @@ void MainMenuWindow::HandlerPlayButtonClick()
 //-----------------------------------------------------------------
 void MainMenuWindow::HandlerSettingsButtonClick()
 {
-	SetTab("Credits");
+	SetTab("Volume");
 }
 //-----------------------------------------------------------------
 void MainMenuWindow::HandlerCreditsButtonClick()
 {
-	SetTab("Volume");
-	// TO DO добавить отображение текста в label
-	//m_creditsLabel->setText(m_creditsText);
+	SetTab("Credits");
 }
 //-----------------------------------------------------------------
 void MainMenuWindow::HandlerReturnButtonClick()
@@ -109,7 +105,8 @@ void MainMenuWindow::HandlerExitButtonClick()
 void MainMenuWindow::HandlerSliderValueChange()
 {
 	// TO DO добавить изменение громкости звука при 
-	//Audio::AudioPlayer::Instance().SetVolume(m_volumeSlider->getValue());
+	auto&& sliderElement = std::static_pointer_cast<tgui::Slider>(m_guiElements.equal_range("Volume").first->second);
+	Audio::AudioPlayer::Instance().SetVolume(sliderElement->getValue());
 }
 //-----------------------------------------------------------------
 void MainMenuWindow::LoadCreditsFile()
@@ -128,18 +125,14 @@ void MainMenuWindow::SetTab(std::string tab)
 	m_returnButton->setVisible(tab != "Menu");
 	for (auto& element : m_guiElements)
 	{
-		if (element.first == m_currentTab) 
+		//if (element.first == m_currentTab) 
 			element.second->setVisible(false);
-		else if (element.first == tab) 
-			element.second->setVisible(true);
 	}
 	m_currentTab = tab;
 	for (auto& element : m_guiElements)
 	{
-		//if (element.first == m_currentTab)
-			//element.second->setVisible(true);
-		//else if (element.first == tab)
-			//element.second->setVisible(true);
+		if (element.first == m_currentTab)
+			element.second->setVisible(true);
 	}
 }
 //-----------------------------------------------------------------
