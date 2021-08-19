@@ -22,6 +22,7 @@ namespace GUI
 	{
 		enum State
 		{
+			None,
 			Menu,
 			Settings,
 			Credits
@@ -36,18 +37,17 @@ namespace GUI
 		void HandlerSliderValueChange();
 
 		void LoadCreditsFile();
-		void SetTab(std::string tab);
+		void SetTab(State tab);
 		
 		std::shared_ptr<tgui::Button>	m_returnButton;
 
-		std::multimap<std::string, std::shared_ptr<tgui::Widget>> m_guiElements;
+		std::multimap<State, std::shared_ptr<tgui::Widget>> m_guiElements;
 		
-		std::string m_currentTab;
 		std::string m_creditsText;
 
 		tgui::GuiSFML* m_gui;						         
 													         
-	public:											   	     
+	public:	
 		void Activate(tgui::GuiSFML* gui) override;	   	     
 		void Deactivate() override;						     
 	};
