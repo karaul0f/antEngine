@@ -1,0 +1,106 @@
+Renderer.1 {
+    BackgroundColor = #F5F5F5;
+    BackgroundColorDisabled = #E6E6E6;
+    BackgroundColorDown = #EBEBEB;
+    BackgroundColorHover = white;
+    BorderColor = #3C3C3C;
+    BorderColorDisabled = #7D7D7D;
+    BorderColorDown = black;
+    BorderColorFocused = #1E1EB4;
+    BorderColorHover = black;
+    Borders = (1, 1, 1, 1);
+    TextColor = #3C3C3C;
+    TextColorDisabled = #7D7D7D;
+    TextColorDown = black;
+    TextColorHover = black;
+    Texture = None;
+    TextureDisabled = None;
+    TextureDown = None;
+    TextureDownFocused = None;
+    TextureDownHover = None;
+    TextureFocused = None;
+    TextureHover = None;
+}
+
+Button.Button1 {
+	Origin = (0.5, 0.5);
+    Position = (50%, 30%);
+    Renderer = &1;
+    Text = "Играть";
+    TextSize = 13;
+}
+
+Button.Button2 {
+	Origin = (0.5, 0.5);
+    Position = (50%, 40%);
+    Renderer = &1;
+    Text = "Настройки";
+    TextSize = 13;
+}
+
+Button.Button3 {
+	Origin = (0.5, 0.5);
+    Position = (50%, 50%);
+    Renderer = &1;
+    Text = "Авторы";
+    TextSize = 13;
+}
+
+Button.Button4 {
+	Origin = (0.5, 0.5);
+    Position = (50%, 60%);
+    Renderer = &1;
+    Text = "Выход";
+    TextSize = 13;
+}
+
+Label.Label1 {
+	Origin = (0.5, 0.5);
+    AutoSize = true;
+    HorizontalAlignment = Center;
+    Position = (50%, 50%);
+    Size = (4.8, 27);
+    TextSize = 20;
+
+    Renderer {
+        BackgroundColor = transparent;
+        BorderColor = #3C3C3C;
+        Borders = (0, 0, 0, 0);
+        TextColor = #FFFFFF;
+        TextureBackground = None;
+    }
+}
+
+Button.Button5 {
+	Origin = (0.5, 0.5);
+    Position = (20%, 80%);
+    Renderer = &1;
+    Text = "Русские назад";
+    TextSize = 13;
+}
+
+Slider.Slider1 {
+	Origin = (0.5, 0.5);
+    ChangeValueOnScroll = true;
+    InvertedDirection = false;
+    Maximum = 100;
+    Minimum = 0;
+    Position = (50%, 50%);
+    Size = (200, 16);
+    Step = 1;
+    Value = 50;
+
+    Renderer {
+        BorderColor = #3C3C3C;
+        BorderColorHover = black;
+        Borders = (1, 1, 1, 1);
+        TextureThumb = None;
+        TextureThumbHover = None;
+        TextureTrack = None;
+        TextureTrackHover = None;
+        ThumbColor = #F5F5F5;
+        ThumbColorHover = white;
+        TrackColor = #F5F5F5;
+        TrackColorHover = white;
+    }
+}

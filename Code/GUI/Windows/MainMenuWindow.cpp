@@ -10,65 +10,48 @@ namespace GUI
 void MainMenuWindow::Activate(tgui::GuiSFML* gui)
 {
 	m_gui = gui;
+	m_gui->loadWidgetsFromFile("Data/Windows/MainMenu.txt");
 
 	// Кнопки меню
-	auto element = tgui::Button::create("Начать игру");
+	auto element = std::static_pointer_cast<tgui::Button>(m_gui->get("Button1"));
 	element->onClick(&MainMenuWindow::HandlerPlayButtonClick, this);
-	element->setPosition("50%", "30%");
-	element->setOrigin(0.5f, 0.5f);
-	m_guiElements.emplace(Menu, element);
+	m_guiElements.emplace(State::Menu, element);
 	m_gui->add(element);
 
-	element = tgui::Button::create("Настройки");
+	element = std::static_pointer_cast<tgui::Button>(m_gui->get("Button2"));
 	element->onClick(&MainMenuWindow::HandlerSettingsButtonClick, this);
-	element->setPosition("50%", "40%");
-	element->setOrigin(0.5f, 0.5f);
-	m_guiElements.emplace(Menu, element);
+	m_guiElements.emplace(State::Menu, element);
 	m_gui->add(element);
 
-	element = tgui::Button::create("Авторы");
+	element = std::static_pointer_cast<tgui::Button>(m_gui->get("Button3"));
 	element->onClick(&MainMenuWindow::HandlerCreditsButtonClick, this);
-	element->setPosition("50%", "50%");
-	element->setOrigin(0.5f, 0.5f);
-	m_guiElements.emplace(Menu, element);
+	m_guiElements.emplace(State::Menu, element);
 	m_gui->add(element);
 
-	element = tgui::Button::create("Выйти из игры");
+	element = std::static_pointer_cast<tgui::Button>(m_gui->get("Button4"));
 	element->onClick(&MainMenuWindow::HandlerExitButtonClick, this);
-	element->setPosition("50%", "60%");
-	element->setOrigin(0.5f, 0.5f);
-	m_guiElements.emplace(Menu, element);
+	m_guiElements.emplace(State::Menu, element);
 	m_gui->add(element);
 
 	// Авторы
 	LoadCreditsFile();
-	auto labelElem = tgui::Label::create(m_creditsText);
-	labelElem->setPosition("50%", "50%");
-	labelElem->setOrigin(0.5f, 0.5f);
-	labelElem->setTextSize(20);
-	labelElem->setHorizontalAlignment(tgui::Label::HorizontalAlignment::Center);
-	m_guiElements.emplace(Credits, labelElem);
+	auto labelElem = std::static_pointer_cast<tgui::Label>(m_gui->get("Label1"));
+	labelElem->setText(m_creditsText);
+	m_guiElements.emplace(State::Credits, labelElem);
 	m_gui->add(labelElem);
 
 	// Настройка громкости
-	auto sliderElement = tgui::Slider::create();
-	sliderElement->setPosition("50%", "50%");
-	sliderElement->setOrigin(0.5f, 0.5f);
+	auto sliderElement = std::static_pointer_cast<tgui::Slider>(m_gui->get("Slider1"));
 	sliderElement->onValueChange(&MainMenuWindow::HandlerSliderValueChange, this);
-	sliderElement->setMaximum(100);
-	sliderElement->setMinimum(0);
-	sliderElement->setValue(50);
-	m_guiElements.emplace(Settings, sliderElement);
+	m_guiElements.emplace(State::Settings, sliderElement);
 	m_gui->add(sliderElement);
 
 	// Возврат в главное меню
-	m_returnButton = tgui::Button::create("Русские назад");
+	m_returnButton = std::static_pointer_cast<tgui::Button>(m_gui->get("Button5"));
 	m_returnButton->onClick(&MainMenuWindow::HandlerReturnButtonClick, this);
-	m_returnButton->setPosition("15%", "90%");
-	m_returnButton->setOrigin(0.5f, 0.5f);
 	m_gui->add(m_returnButton);
 
-	SetTab(Menu);
+	SetTab(State::Menu);
 }
 //-----------------------------------------------------------------
 void MainMenuWindow::Deactivate()
@@ -83,17 +66,17 @@ void MainMenuWindow::HandlerPlayButtonClick()
 //-----------------------------------------------------------------
 void MainMenuWindow::HandlerSettingsButtonClick()
 {
-	SetTab(Settings);
+	SetTab(State::Settings);
 }
 //-----------------------------------------------------------------
 void MainMenuWindow::HandlerCreditsButtonClick()
 {
-	SetTab(Credits);
+	SetTab(State::Credits);
 }
 //-----------------------------------------------------------------
 void MainMenuWindow::HandlerReturnButtonClick()
 {
-	SetTab(Menu);
+	SetTab(State::Menu);
 }
 //-----------------------------------------------------------------
 void MainMenuWindow::HandlerExitButtonClick()
@@ -102,9 +85,8 @@ void MainMenuWindow::HandlerExitButtonClick()
 }
 //-----------------------------------------------------------------
 void MainMenuWindow::HandlerSliderValueChange()
-{
-	// TO DO добавить изменение громкости звука при 
-	auto&& sliderElement = std::static_pointer_cast<tgui::Slider>(m_guiElements.equal_range(Settings).first->second);
+{ 
+	auto sliderElement = std::static_pointer_cast<tgui::Slider>(m_guiElements.equal_range(State::Settings).first->second);
 	Audio::AudioPlayer::Instance().SetVolume(sliderElement->getValue());
 }
 //-----------------------------------------------------------------
@@ -121,13 +103,13 @@ void MainMenuWindow::LoadCreditsFile()
 //-----------------------------------------------------------------
 void MainMenuWindow::SetTab(State tab)
 {
-	for (auto item : m_guiElements)
+	for (auto& item : m_guiElements)
 		item.second->setVisible(false);
 
-	m_returnButton->setVisible(tab != Menu);
+	m_returnButton->setVisible(tab != State::Menu);
 	
 	auto visibleItems = m_guiElements.equal_range(tab);
-	for (auto it = visibleItems.first; it != visibleItems.second; it++)
+	for (auto& it = visibleItems.first; it != visibleItems.second; it++)
 		it->second->setVisible(true);
 }
 //-----------------------------------------------------------------

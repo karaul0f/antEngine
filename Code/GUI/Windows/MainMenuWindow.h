@@ -20,23 +20,27 @@ namespace GUI
 	// Интерфейс главного меню игры
 	class MainMenuWindow: public IWindow
 	{
-		enum State
+		enum class State
 		{
-			None,
 			Menu,
 			Settings,
 			Credits
 		};
 
+		// Обработчики событий для кнопок
 		void HandlerPlayButtonClick();
 		void HandlerSettingsButtonClick();
 		void HandlerCreditsButtonClick();
 		void HandlerReturnButtonClick();
 		void HandlerExitButtonClick();
 
+		// Обработчик измения значения слайдера
 		void HandlerSliderValueChange();
 
+		// Загрузка текста из файла
 		void LoadCreditsFile();
+
+		// Изменение состояния окна
 		void SetTab(State tab);
 		
 		std::shared_ptr<tgui::Button>	m_returnButton;
@@ -48,6 +52,7 @@ namespace GUI
 		tgui::GuiSFML* m_gui;						         
 													         
 	public:	
+		//
 		void Activate(tgui::GuiSFML* gui) override;	   	     
 		void Deactivate() override;						     
 	};

@@ -5,6 +5,7 @@ namespace Audio
 //-----------------------------------------------------------------
 void AudioPlayer::Init()
 {
+	SetVolume(50);
 }
 //-----------------------------------------------------------------
 void AudioPlayer::PlaySound(Resources::Sound& sound)
