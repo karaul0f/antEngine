@@ -5,7 +5,8 @@ namespace Audio
 //-----------------------------------------------------------------
 void AudioPlayer::Init()
 {
-	SetVolume(50);
+	m_volumeLevel = m_soundSettings.GetFloatValue("Volume.Level");
+	SetVolume(m_volumeLevel);
 }
 //-----------------------------------------------------------------
 void AudioPlayer::PlaySound(Resources::Sound& sound)
@@ -38,7 +39,18 @@ void AudioPlayer::StopAllSounds()
 //-----------------------------------------------------------------
 void AudioPlayer::SetVolume(float volume)
 {
-	sf::Listener::setGlobalVolume(volume);
+	m_volumeLevel = volume;
+	sf::Listener::setGlobalVolume(m_volumeLevel);
+}
+//-----------------------------------------------------------------
+float AudioPlayer::GetVolume()
+{
+	return m_volumeLevel;
+}
+//-----------------------------------------------------------------
+AudioPlayer::~AudioPlayer()
+{
+	m_soundSettings.SetFloatValue("Volume.Level", m_volumeLevel);
 }
 //-----------------------------------------------------------------
 }

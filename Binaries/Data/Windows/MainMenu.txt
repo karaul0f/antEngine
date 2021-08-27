@@ -22,7 +22,7 @@ Renderer.1 {
     TextureHover = None;
 }
 
-Button.Button1 {
+Button.ButtonPlay {
 	Origin = (0.5, 0.5);
     Position = (50%, 30%);
     Renderer = &1;
@@ -30,7 +30,7 @@ Button.Button1 {
     TextSize = 13;
 }
 
-Button.Button2 {
+Button.ButtonSettings {
 	Origin = (0.5, 0.5);
     Position = (50%, 40%);
     Renderer = &1;
@@ -38,7 +38,7 @@ Button.Button2 {
     TextSize = 13;
 }
 
-Button.Button3 {
+Button.ButtonCredits {
 	Origin = (0.5, 0.5);
     Position = (50%, 50%);
     Renderer = &1;
@@ -46,7 +46,7 @@ Button.Button3 {
     TextSize = 13;
 }
 
-Button.Button4 {
+Button.ButtonExit {
 	Origin = (0.5, 0.5);
     Position = (50%, 60%);
     Renderer = &1;
@@ -54,7 +54,7 @@ Button.Button4 {
     TextSize = 13;
 }
 
-Label.Label1 {
+Label.LabelCredits {
 	Origin = (0.5, 0.5);
     AutoSize = true;
     HorizontalAlignment = Center;
@@ -71,7 +71,7 @@ Label.Label1 {
     }
 }
 
-Button.Button5 {
+Button.ButtonBack {
 	Origin = (0.5, 0.5);
     Position = (20%, 80%);
     Renderer = &1;
@@ -79,7 +79,7 @@ Button.Button5 {
     TextSize = 13;
 }
 
-Slider.Slider1 {
+Slider.SliderVolume {
 	Origin = (0.5, 0.5);
     ChangeValueOnScroll = true;
     InvertedDirection = false;

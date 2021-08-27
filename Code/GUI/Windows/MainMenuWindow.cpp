@@ -13,41 +13,42 @@ void MainMenuWindow::Activate(tgui::GuiSFML* gui)
 	m_gui->loadWidgetsFromFile("Data/Windows/MainMenu.txt");
 
 	// Кнопки меню
-	auto element = std::static_pointer_cast<tgui::Button>(m_gui->get("Button1"));
+	auto element = std::static_pointer_cast<tgui::Button>(m_gui->get("ButtonPlay"));
 	element->onClick(&MainMenuWindow::HandlerPlayButtonClick, this);
 	m_guiElements.emplace(State::Menu, element);
 	m_gui->add(element);
 
-	element = std::static_pointer_cast<tgui::Button>(m_gui->get("Button2"));
+	element = std::static_pointer_cast<tgui::Button>(m_gui->get("ButtonSettings"));
 	element->onClick(&MainMenuWindow::HandlerSettingsButtonClick, this);
 	m_guiElements.emplace(State::Menu, element);
 	m_gui->add(element);
 
-	element = std::static_pointer_cast<tgui::Button>(m_gui->get("Button3"));
+	element = std::static_pointer_cast<tgui::Button>(m_gui->get("ButtonCredits"));
 	element->onClick(&MainMenuWindow::HandlerCreditsButtonClick, this);
 	m_guiElements.emplace(State::Menu, element);
 	m_gui->add(element);
 
-	element = std::static_pointer_cast<tgui::Button>(m_gui->get("Button4"));
+	element = std::static_pointer_cast<tgui::Button>(m_gui->get("ButtonExit"));
 	element->onClick(&MainMenuWindow::HandlerExitButtonClick, this);
 	m_guiElements.emplace(State::Menu, element);
 	m_gui->add(element);
 
 	// Авторы
 	LoadCreditsFile();
-	auto labelElem = std::static_pointer_cast<tgui::Label>(m_gui->get("Label1"));
+	auto labelElem = std::static_pointer_cast<tgui::Label>(m_gui->get("LabelCredits"));
 	labelElem->setText(m_creditsText);
 	m_guiElements.emplace(State::Credits, labelElem);
 	m_gui->add(labelElem);
 
 	// Настройка громкости
-	auto sliderElement = std::static_pointer_cast<tgui::Slider>(m_gui->get("Slider1"));
+	auto sliderElement = std::static_pointer_cast<tgui::Slider>(m_gui->get("SliderVolume"));
+	sliderElement->setValue(Audio::AudioPlayer::Instance().GetVolume());
 	sliderElement->onValueChange(&MainMenuWindow::HandlerSliderValueChange, this);
 	m_guiElements.emplace(State::Settings, sliderElement);
 	m_gui->add(sliderElement);
 
 	// Возврат в главное меню
-	m_returnButton = std::static_pointer_cast<tgui::Button>(m_gui->get("Button5"));
+	m_returnButton = std::static_pointer_cast<tgui::Button>(m_gui->get("ButtonBack"));
 	m_returnButton->onClick(&MainMenuWindow::HandlerReturnButtonClick, this);
 	m_gui->add(m_returnButton);
 

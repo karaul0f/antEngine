@@ -52,7 +52,6 @@ namespace GUI
 		tgui::GuiSFML* m_gui;						         
 													         
 	public:	
-		//
 		void Activate(tgui::GuiSFML* gui) override;	   	     
 		void Deactivate() override;						     
 	};
