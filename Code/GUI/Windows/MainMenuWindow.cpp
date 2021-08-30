@@ -54,7 +54,7 @@ void MainMenuWindow::Activate(tgui::GuiSFML* gui)
 	m_gui->add(m_returnButton);
 
 	SetTab(State::Menu);
-	Audio::AudioPlayer::Instance().PlayMusic(Resources::ResourceManager::Instance().GetMusicByName("Music0"), false);
+	Audio::AudioPlayer::Instance().PlayMusic(Resources::ResourceManager::Instance().GetMusicByName("Music0"), true);
 }
 //-----------------------------------------------------------------
 void MainMenuWindow::Deactivate()

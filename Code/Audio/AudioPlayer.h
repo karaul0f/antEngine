@@ -19,14 +19,11 @@ namespace Audio
 		AudioPlayer() { }
 		AudioPlayer(const AudioPlayer& instance) = delete;
 		AudioPlayer& operator=(const AudioPlayer&) = delete;
-		
-		~AudioPlayer();
 
 		MapMusic m_musics;
 		MapSound m_sounds;
 
 		Core::Ini	m_volumeLevel;
-		//float		m_volumeLevel;
 
 	public:
 		static AudioPlayer& Instance()

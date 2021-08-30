@@ -27,6 +27,7 @@ Ini::Ini(const std::string& filePath)
 //-----------------------------------------------------------------
 Ini::~Ini()
 {
+	boost::property_tree::ini_parser::write_ini(m_filePath, m_pTree);
 	m_pTree.clear();
 }
 //-----------------------------------------------------------------
@@ -58,11 +59,6 @@ void Ini::SetFloatValue(const std::string& propertyName, float value)
 void Ini::SetStringValue(const std::string& propertyName, const std::string& value)
 {
 	m_pTree.put(propertyName, value);
-}
-//-----------------------------------------------------------------
-void Ini::WriteChangesToINIFile()
-{
-	boost::property_tree::ini_parser::write_ini(m_filePath, m_pTree);
 }
 //-----------------------------------------------------------------
 }

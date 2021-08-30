@@ -26,7 +26,5 @@ namespace Core
 		void SetFloatValue(const std::string& propertyName, float value);
 		void SetStringValue(const std::string& propertyName, const std::string& value);
 
-		// Записать значение в ini файл
-		void WriteChangesToINIFile();
 	};
 }

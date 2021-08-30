@@ -47,9 +47,4 @@ float AudioPlayer::GetVolume()
 	return m_volumeLevel.GetFloatValue("Volume.Level");
 }
 //-----------------------------------------------------------------
-AudioPlayer::~AudioPlayer()
-{
-	m_volumeLevel.WriteChangesToINIFile();
-}
-//-----------------------------------------------------------------
 }
