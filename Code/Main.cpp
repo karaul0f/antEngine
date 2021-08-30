@@ -18,8 +18,6 @@ int main()
 	Input::Input::Instance().Init();
 	//ScriptManager.Init();
 	
-	Audio::AudioPlayer::Instance().PlayMusic(Resources::ResourceManager::Instance().GetMusicByName("Music0"), false);
-	
 	// Для замера производительности
 	float fps;
 	sf::Clock clock;

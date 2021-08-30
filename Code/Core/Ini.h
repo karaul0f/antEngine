@@ -16,14 +16,17 @@ namespace Core
 
 		~Ini();
 
-		// Получить значение из заданного ini файла
+		// Получить значение из Property Tree
 		int GetIntValue(const std::string& propertyName);
 		float GetFloatValue(const std::string& propertyName);
 		std::string GetStringValue(const std::string& propertyName);
 
-		// Записать значение в ini файл
+		// Записать значение в Property Tree
 		void SetIntValue(const std::string& propertyName, int value);
 		void SetFloatValue(const std::string& propertyName, float value);
 		void SetStringValue(const std::string& propertyName, const std::string& value);
+
+		// Записать значение в ini файл
+		void WriteChangesToINIFile();
 	};
 }

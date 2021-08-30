@@ -2,6 +2,7 @@
 
 #include "Gameplay/Gameplay.h"
 #include "Gameplay/States/GameState.h"
+#include "Resources/ResourceManager.h"
 #include "TGUI/TGUI.hpp"
 
 namespace GUI
@@ -53,10 +54,12 @@ void MainMenuWindow::Activate(tgui::GuiSFML* gui)
 	m_gui->add(m_returnButton);
 
 	SetTab(State::Menu);
+	Audio::AudioPlayer::Instance().PlayMusic(Resources::ResourceManager::Instance().GetMusicByName("Music0"), false);
 }
 //-----------------------------------------------------------------
 void MainMenuWindow::Deactivate()
 {
+	Audio::AudioPlayer::Instance().StopAllSounds();
 	m_gui->removeAllWidgets();
 }
 //-----------------------------------------------------------------

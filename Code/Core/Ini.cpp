@@ -48,18 +48,20 @@ std::string Ini::GetStringValue(const std::string& propertyName)
 void Ini::SetIntValue(const std::string& propertyName, int value)
 {
 	m_pTree.put(propertyName, value);
-	boost::property_tree::ini_parser::write_ini(m_filePath, m_pTree);
 }
 //-----------------------------------------------------------------
 void Ini::SetFloatValue(const std::string& propertyName, float value)
 {
 	m_pTree.put(propertyName, value);
-	boost::property_tree::ini_parser::write_ini(m_filePath, m_pTree);
 }
 //-----------------------------------------------------------------
 void Ini::SetStringValue(const std::string& propertyName, const std::string& value)
 {
 	m_pTree.put(propertyName, value);
+}
+//-----------------------------------------------------------------
+void Ini::WriteChangesToINIFile()
+{
 	boost::property_tree::ini_parser::write_ini(m_filePath, m_pTree);
 }
 //-----------------------------------------------------------------

@@ -25,8 +25,8 @@ namespace Audio
 		MapMusic m_musics;
 		MapSound m_sounds;
 
-		Core::Ini	m_soundSettings;
-		float		m_volumeLevel;
+		Core::Ini	m_volumeLevel;
+		//float		m_volumeLevel;
 
 	public:
 		static AudioPlayer& Instance()
