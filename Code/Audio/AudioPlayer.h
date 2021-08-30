@@ -23,7 +23,7 @@ namespace Audio
 		MapMusic m_musics;
 		MapSound m_sounds;
 
-		Core::Ini	m_volumeLevel;
+		Core::Ini	m_config;
 
 	public:
 		static AudioPlayer& Instance()
