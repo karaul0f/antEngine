@@ -1,5 +1,6 @@
 #include "Audio/AudioPlayer.h"
 #include "Core/Logger.h"
+#include "Core/Ini.h"
 #include "Gameplay/Gameplay.h"
 #include "Input/Input.h"
 #include "Resources/ResourceManager.h"
@@ -11,12 +12,12 @@ int main()
 	
 	// Инициализация основных подсистем движка
 	Resources::ResourceManager::Instance().Init();
+	Audio::AudioPlayer::Instance().Init();
 	Render::Render::Instance().Init();
 	Gameplay::Gameplay::Instance().Init();
 	Input::Input::Instance().Init();
-	Audio::AudioPlayer::Instance().Init();
 	//ScriptManager.Init();
-
+	
 	// Для замера производительности
 	float fps;
 	sf::Clock clock;

@@ -1,8 +1,9 @@
 #pragma once
+#include <unordered_map>
 #include "SFML/Audio.hpp"
 #include "Resources/Types/Music.h"
 #include "Resources/Types/Sound.h"
-#include <unordered_map>
+#include "Core/Ini.h"
 
 namespace 
 {
@@ -18,9 +19,11 @@ namespace Audio
 		AudioPlayer() { }
 		AudioPlayer(const AudioPlayer& instance) = delete;
 		AudioPlayer& operator=(const AudioPlayer&) = delete;
-		
+
 		MapMusic m_musics;
 		MapSound m_sounds;
+
+		Core::Ini	m_config;
 
 	public:
 		static AudioPlayer& Instance()
@@ -43,6 +46,9 @@ namespace Audio
 
 		// Установить громкость музыки и звуков
 		void SetVolume(float volume);
+
+		// Получить текущую громкость музыки и звуков
+		float GetVolume();
 
 	};
 }
