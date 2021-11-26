@@ -22,6 +22,7 @@
     <ClCompile Include="..\Code\Audio\AudioPlayer.cpp" />
     <ClCompile Include="..\Code\Core\Ini.cpp" />
     <ClCompile Include="..\Code\Core\Logger.cpp" />
+    <ClCompile Include="..\Code\Gameplay\Components\GraphicComponent.cpp" />
     <ClCompile Include="..\Code\Gameplay\Entity.cpp" />
     <ClCompile Include="..\Code\Gameplay\Gameplay.cpp" />
     <ClCompile Include="..\Code\Gameplay\Level.cpp" />
@@ -43,6 +44,7 @@
     <ClInclude Include="..\Code\Audio\AudioPlayer.h" />
     <ClInclude Include="..\Code\Core\Ini.h" />
     <ClInclude Include="..\Code\Core\Logger.h" />
+    <ClInclude Include="..\Code\Gameplay\Components\GraphicComponent.h" />
     <ClInclude Include="..\Code\Gameplay\Components\IComponent.h" />
     <ClInclude Include="..\Code\Gameplay\Entity.h" />
     <ClInclude Include="..\Code\Gameplay\Gameplay.h" />

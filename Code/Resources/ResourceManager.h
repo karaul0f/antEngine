@@ -26,7 +26,7 @@ namespace Resources
 		std::unordered_map<std::string, sf::SoundBuffer>	m_soundBuffers;
 
 		// Загружаем ресурсы для игры
-		void ResourceLoad();
+		void ResourceLoad(const std::string& pathToFile);
 
 		// Создаём путь к файлу 
 		std::string CreatePath(const std::string& path);

@@ -16,7 +16,7 @@ namespace Resources
 void ResourceManager::Init()
 {
 	INFO("Инициализация менеджера ресурсов");
-	ResourceLoad();
+	ResourceLoad("Data/GameConfig.xml");
 	
 }
 //-----------------------------------------------------------------
@@ -27,10 +27,10 @@ void ResourceManager::Deinit()
 	m_soundBuffers.clear();
 }
 //-----------------------------------------------------------------
-void ResourceManager::ResourceLoad()
+void ResourceManager::ResourceLoad(const std::string& pathToFile)
 {
 	tinyxml2::XMLDocument doc;
-	doc.LoadFile("Data/GameConfig.xml");
+	doc.LoadFile(pathToFile.c_str());
 
 	tinyxml2::XMLElement* gameConfigElement = doc.FirstChildElement("GameConfig");
 	if (gameConfigElement != nullptr) 

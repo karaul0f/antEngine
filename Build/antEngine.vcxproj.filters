@@ -91,6 +91,9 @@
     <ClCompile Include="..\Code\Core\Ini.cpp">
       <Filter>Core</Filter>
     </ClCompile>
+    <ClCompile Include="..\Code\Gameplay\Components\GraphicComponent.cpp">
+      <Filter>Gameplay\Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Code\Resources\ResourceManager.h">
@@ -155,6 +158,9 @@
     </ClInclude>
     <ClInclude Include="..\Code\Core\Ini.h">
       <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Code\Gameplay\Components\GraphicComponent.h">
+      <Filter>Gameplay\Components</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
